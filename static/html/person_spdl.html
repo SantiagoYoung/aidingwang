@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    {{ big_type.name }}
+{% endblock %}
+
+
+{% block main %}
+    <div class="shops-show-region">  <!-- 内容-->
+        <div>
+            <div id="goods_nav">
+                <div class="goods-bigname">
+                    <a href="javascript:;">{{ big_type.name }}</a>
+                </div>
+                <ul class="fl-header-box">
+                
+  {% for s in data %}
+                        <li><a href="/catalog/ShowGoodsBySmallType/{{ s.s_id }}/">{{ s.s_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="small-class-showbox">
+                <div class="small-classname-box">
+{#                    <h2 class="small-class-name">{{ small.name }}</h2>  <!--小类名-->#}
+                </div>
+                {% for s in  show_lists %}
+                    <div class="big-classname-box">
+                    </div>
+                    <div class="big-class-shopsimg">
+                        <div class="shops-info-box">
+                            <a href="/catalog/goods_detail/{{ s.id }}"><img src="/media/{{ s.picture }}"></a>
+                            <div class="shops-pri-name">
+                                <div style="float: left;width: 220px;height: 45px;">
+                                    <div class="name-box"><a
+                                            href="/catalog/goods_detail/{{ s.id }}">{{ s.goods_name }}</a></div>
+                                    <div class="price-box" style="width: 236px;">
+                                        <div style="float: left;">
+                                            <span class="shops-price">￥{{ s.current_price }}.00</span>
+                                        </div>
+                                        <div class="provide-services">
+                                            <ul>
+                                                <li class="designli">
+                                                    <span>设</span>
+                                                </li>
+                                                <li class="makingli">
+                                                    <span>制</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+ <div style="width: 100%;height: 70px;clear: both;"></div>
+    {% include 'footer.html' %}
+    <script>
+$(document).ready(function () {
+$("#goods_nav").css("margin-left", function(){
+	var left = (1000 - (82 + $(".fl-header-box li").eq(1).width() *  ($(".fl-header-box li").length - 1)  + 53 + 2 ))/2
+	return left;
+});
+});
+    </script>
+{% endblock %}

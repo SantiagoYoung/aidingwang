@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}
+    修改密码
+{% endblock %}
+
+{% block main %}
+    <div style="width: 1000px;margin: 0 auto;">
+    <p style="margin: 5px 0px;font-weight: 200;font-size: 11px;color: #999;">爱定网是全球第一家专业的服装定制公司平台，汇集了上万家诚信、正规的服装定制公司，免费供您选择！让您足不出户，尽可享受方便快捷的定制服务。</p>
+     </div>
+
+    <div class="user-infocont">
+        {% include 'left_side.html' %}
+        <div id="right_info" style="margin-top: 70px;margin-right: -69px;">
+            <div id="right_infoaqzx">
+
+
+                <a href="/Accounts/">
+                    <div>{{ message }}</div>
+                </a>
+
+                <form action="/Accounts/change_password/" method="post" id="modify_password">
+                    <span for="origin_password">输入原始密码：</span>
+                    <input type="password" name="origin_password" id="origin_password"/><br/>
+                    <span for="new_password" style="    position: relative;left: 42px;">新密码：</span>
+                    <input type="password" name="new_password" id="new_password"/><br/>
+                    <span for="confirm">确认新的密码：</span>
+                    <input type="password" name="confirm" id="confirm"/><br/>
+                    <button type="submit" id="submit-passwd">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+   　　<script type="text/javascript">
+     $(document).ready(function () {
+        $("#submit-passwd").click(function () {
+          $.ajax({
+              type: "post",
+               url: "/Accounts/change_password/",
+              data: {
+                 origin_password: $("#origin_password").val(),
+                    new_password: $("#new_password").val(),
+                         confirm: $("#confirm").val()
+              },
+                success: function (data) {
+               alert("修改成功，请牢记密码！");
+                },
+                error: function (data) {
+                  alert(0);
+                }
+          });
+        });
+
+         $(".modifypass_a").css("color","#ff6162");
+     });
+</script>
+{% endblock %}

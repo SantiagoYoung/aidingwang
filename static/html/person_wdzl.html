@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}
+    我的资料
+{% endblock %}
+
+
+{% block main %}
+
+    {% include 'left_side.html' %}
+    <div id="right-form">
+        <form>
+            <div class="form-1">
+                <label>用户名：</label><input type="text" name="text" value="huopd"/>
+            </div>
+            <div class="form-3">
+                <label>联系人：</label><input type="text" name="text" value=""/>
+            </div>
+            <div class="form-4">
+                <label>固定电话：</label><input type="text" name="text" value=""/>
+            </div>
+            <div class="form-5">
+                <label>手机：</label><input type="text" name="text" value=""/>
+            </div>
+            <div class="form-6">
+                <label>QQ：</label><input type="text" name="text" value=""/>
+            </div>
+            <div class="form-10">
+                <button type="button" id="editor-userdata">编辑</button>
+                <input type="submit" name="submit" value="提交"/>
+            </div>
+        </form>
+    </div>
+
+    {% include 'footer.html' %}
+
+
+    <script src="/static/js/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#editor-userdata").click(function () {
+                $(this).attr("id", "save-mydata");
+                $(this).text("保存");
+            });
+        });
+    </script>
+
+
+{% endblock %}

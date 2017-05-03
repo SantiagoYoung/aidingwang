@@ -1,0 +1,93 @@
+#content {
+	height: 1200px !important;
+}
+
+#content #left_list {
+	position: absolute;
+	top: 240px;
+}
+
+#right_info {
+	display: inline-block;
+	position: relative;
+	top: 10px;
+	left: 350px;
+}
+
+#right_info th,
+#right_info td {
+	font-size: 12px;
+	color: #808080;
+}
+
+#right_info #head {
+	margin-bottom: 5px;
+}
+
+#right_info .info_table {
+	border-top: 1px solid #F2F2F2;
+	width: 800px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#right_info #head #theme {
+	position: relative;
+	width: 150px;
+	left: -0px;
+}
+
+#right_info #head #context {
+	position: relative;
+	width: 550px;
+	left: -30px;
+}
+
+#right_info .detail_info tr td:nth-child(1) {
+	text-align: center;
+	position: relative;
+	width: 150px;
+	left: -20px;
+}
+
+#right_info .detail_info tr td:nth-child(2) {
+	position: relative;
+	width: 500px;
+	left: 0px;
+}
+
+#right_info .detail_info tr td:nth-child(3) {
+	position: relative;
+	width: 100px;
+	left: 30px;
+}
+#pagination{
+	position: relative;
+	left:140px;
+	top:10px;
+}
+#pagination ul li {
+	float: left;
+	width: 25px;
+	height: 30px;
+	margin-left: 15px;
+	line-height: 30px;
+	text-align: center;
+}
+
+#pagination ul li:first-child {
+	background-color: #AFAFAF;
+}
+
+#pagination ul li:first-child a {
+	color: white;
+}
+
+#pagination ul li a {
+	font-size: 16px;
+	color: #666;
+}
+
+#pagination #r_arr {
+	width: 65px;
+}

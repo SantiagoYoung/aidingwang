@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    我的资料
+{% endblock %}
+
+{% block main %}
+    <div style="width: 1000px;margin: 0 auto;">
+    <p style="margin: 5px 0px;font-weight: 200;font-size: 11px;color: #999;">爱定网是全球第一家专业的服装定制公司平台，汇集了上万家诚信、正规的服装定制公司，免费供您选择！让您足不出户，尽可享受方便快捷的定制服务。</p>
+     </div>
+    <div class="user-infocont">
+        {% include 'left_side.html' %}
+
+        <div id="right_info" style=" margin-right: 25px;">
+            <div id="detail_info">
+                <ul style="margin-top: 10px;">
+                    <li>
+                      <label style="margin-left: 13px;">邮箱：</label><span style=" margin-left: 13px;">{{ user.username }}</span>
+                    </li>
+                    <li>
+                   <label>用户名：</label> <span style="margin-left: 9px;">{{ info.linkman }}</span>
+                   </li>
+                    <li>
+                      <label style="margin-left: 13px;">手机：</label> <span style="margin-left: 11px;">{{ info.phone_number }}</span>
+                    </li>
+                    <li>
+                       <label style="margin-left: 18px;">QQ：</label> <span style="margin-left: 10px;">{{ info.qq_number }}</span>
+                    </li>
+                 </ul>
+            </div>
+        </div>
+    </div>
+  <div>
+  </div>
+
+    {% include 'footer.html' %}
+  <script>
+   $(document).ready(function(){
+       $(".mydata_a").css("color","#ff6162");
+   });
+  </script>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ data.s_name }}
+{% endblock %}
+
+{% block main %}
+<div class="shops-show-region">  <!-- 内容-->
+    <div id="goods_nav" >
+        <div class="goods-bigname"><a href="javascript:;">{{ big_name }}</a></div>
+        <ul class="fl-header-box">
+
+            {% for k in all_small %}
+                <li><a href="/catalog/ShowGoodsBySmallType/{{ k.id }}/">{{ k.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="small-class-showbox">
+        <div class="small-classname-box">
+            <h2 class="small-class-name">{{ data.s_name }}</h2>  <!--小类名-->
+        </div>
+        <div class="big-class-shopsimg">
+
+            {% for s in good %}
+                <div class="shops-info-box">
+                    <a href="/catalog/goods_detail/{{ s.id }}"><img src="/media/{{ s.picture }}"></a>
+                    <div class="shops-pri-name">
+                        <div >
+                            <div class="name-box"><a href="/catalog/goods_detail/{{ s.id }}" style="color: #999;"><p>{{ s.goods_name }}</p></a>
+                            </div>
+                        </div>
+                    </div>
+                <div>
+                    <div class="price-box" style="float: left;">
+                                <span class="price-symbol">￥{{ s.current_price }}.00</span>
+                            </div>
+                    <div class="provide-services">
+                        <ul>
+                            {% if s.is_provide_design == True %}
+                                <li class="designli">
+                                    <span>设</span>
+                                </li>
+                            {% endif %}
+                            {% if s.is_provide_design == True %}
+                                <li class="makingli">
+                                    <span>制</span>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="paging-boxs">
+    <div class="paging-select">
+        <ul>
+            {% if good.has_previous %}
+                <li class="previous"><a
+                        href="?page={{ good.previous_page_number }}" class="turepage_btn">上一页</a>
+                </li>
+            {% else %}
+                <li class="previous disabled"><a href="#" class="turepage_btn">上一页</a></li>
+            {% endif %}
+            <li class="num_page_box">
+                {% for page in paginator.page_range %}
+                    <a href="?page={{ page }}">{{ page }}</a>
+                {% endfor %}
+            </li>
+            <li class="yc">
+                <a href="javascript:;"> ...</a>
+            </li>
+            {% if good.has_next %}
+                <li class="next"><a
+                        href="?page={{ good.next_page_number }}" class="turepage_btn">下一页</a>
+                </li>
+            {% else %}
+                <li class="next disabled"><a href="#" class="turepage_btn">下一页</a></li>
+            {% endif %}
+
+
+        </ul>
+    </div>
+</div>
+{% include 'footer.html' %}
+
+    <script>
+        var wid = $(".num_page_box").width();
+        if (wid < 142) {
+        $(".yc").css("display", "none");
+    }
+
+    </script>
+<!-- <script>
+$(document).ready(function () {
+$("#goods_nav").css("margin-left", function(){
+	var left = (1000 - (82 + $(".fl-header-box li").eq(1).width() *  ($(".fl-header-box li").length - 1)  + 53 + 2 ))/2
+	return left;
+});
+});
+</script> -->
+{% endblock %}

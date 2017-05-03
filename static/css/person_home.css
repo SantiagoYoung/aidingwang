@@ -1,0 +1,358 @@
+* {
+	margin:0;
+	padding:0;
+}
+#order {
+	margin-left:23px !important;
+}
+.home-content {
+	margin-left:-34px;
+}
+.home-gzdz {
+	margin-left:3px;
+}
+.home-dprz {
+	margin-left:5px;
+}
+.home-dzlc {
+	margin-left:7px;
+}
+#content #nav div {
+	margin-left:205px;
+}
+/*轮播开始*/
+#myCarousel {
+	width:112rem;
+}
+.lunbo-left {
+	display:block;
+	height:55px;
+	width:45px;
+	background-color:#ffffff;
+	position:absolute;
+	top:180px;
+	left:180px;
+	opacity:0.7;
+}
+.lunbo-right {
+	  display: block;
+    height: 55px;
+    width: 45px;
+    background-color: #fff;
+    position: absolute;
+    top: 180px;
+    left: 1140px;
+    opacity: 0.7;
+}
+/*轮播结束*/
+/*定制展示-服装定制*/
+#fzdz-box,#gzdz-box{
+	width:1003px;
+	margin:0 auto;
+	margin-top:30px;
+}
+#xzdz-box,#psdz-box,#jpcy-box {
+	width:1003px;
+	margin:0 auto;
+	margin-top:30px;
+	overflow:hidden;
+}
+.fzdz-header-title {
+	width:1003px;
+	border-bottom:1px solid #cccccc;
+	padding-bottom:5px;
+	font-size:20px;
+}
+.fzdz-img-box {
+	width:1003px;
+	height:350px;
+	padding-top:10px;
+}
+#fzdzzs-img {
+	float:left;
+	margin-right:21px;
+}
+#fzdzzs-img img {
+	width:240px;
+	height:335px;
+}
+#fzdzzs-img-over {
+	float:left;
+}
+.fzdz-header-title span {
+    font-size: 20px;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+/*定制展示-服装定制结束*/
+/*定制展示-工装定制开始*/
+.gzdz-header-title {
+	width:1003px;
+	border-bottom:1px solid #cccccc;
+	padding-bottom:5px;
+	font-size:20px;
+}
+.gzdz-header-title span {
+    font-size: 20px;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+.gzdz-img-box {
+	width:1003px;
+	padding-top:10px;
+}
+.gzdz-img-box1 {
+	width:1003px;
+}
+.gzdz-img-box1 img {
+  width:160px;
+	height:210px;
+}
+.gzdz-img-box1 #gzdz-img {
+	float:left;
+	margin-right:7.5px;
+}
+.gzdz-img1,.gzdz-img2 {
+	width:500px;
+	height: 210px;
+	background:#94d3e6;
+}
+#gzdz-img-over {
+	float:left;
+}
+#gzdz-img .gzdz-img2 {
+ float:left;
+ margin-top:7.5px;
+ background:#f69fb0 !important;
+}
+.gzdz-img-box2 #gzdz-img  img {
+	width:160px;
+	height:210px;
+	float:left;
+	margin-top:7.5px;
+	margin-left:8px;
+}
+.gzdz-img-box2 #gzdz-img  {
+	margin-right:7.5px;
+}
+.gzdz-img-box2  #gzdz-img-over2 img {
+	width:160px;
+	height:210px;
+	float:left;
+	margin-top:7.5px;
+}
+#gzdz-img-over2 img {
+	margin-left:7px;
+}
+/*定制展示-工装定制结束*/
+/*定制展示-鞋子定制开始*/
+.xzdz-header-title {
+	width: 1003px;
+	border-bottom: 1px solid #cccccc;
+	padding-bottom: 5px;
+	font-size: 20px;
+	margin-top:30px;
+}
+.xzdz-header-title span {
+    font-size: 20px;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+.xzdz-img-box {
+	width: 1003px;
+	padding-top: 10px;
+}
+.xzdz-img-box1 {
+	width:1003px;
+}
+.xzdz-img-box1 #xzdz-img {
+    float: left;
+    margin-right: 7.5px;
+}
+.xzdz-img1, .xzdz-img2 {
+    width: 500px;
+    height: 210px;
+    background: #94d3e6;
+}
+.xzdz-img-box1 #xzdz-img {
+    float: left;
+    margin-right: 7.5px;
+}
+#xzdz-img-over {
+    float: left;
+}
+.xzdz-img-box1 img {
+    width: 160px;
+    height: 210px;
+}
+.xzdz-img-box2 #xzdz-img {
+    margin-right: 7.5px;
+}
+#xzdz-img .xzdz-img2 {
+    float: left;
+    margin-top: 7.5px;
+    background: #f69fb0 !important;
+}
+.xzdz-img-box2 #xzdz-img img {
+    width: 160px;
+    height: 210px;
+    float: left;
+    margin-top: 7.5px;
+    margin-left: 8px;
+}
+.xzdz-img-box2 #xzdz-img-over2 img {
+    width: 160px;
+    height: 210px;
+    float: left;
+    margin-top: 7.5px;
+}
+#xzdz-img-over2 img {
+    margin-left: 7px;
+}
+/*定制展示-鞋子定制结束*/
+/*定制展示-配饰定制开始*/
+.psdz-header-title {
+	width: 1003px;
+	border-bottom: 1px solid #cccccc;
+	padding-bottom: 5px;
+	font-size: 20px;
+	margin-top:30px;
+}
+.psdz-header-title span {
+    font-size: 20px;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+.psdz-img-box {
+	width: 1003px;
+	padding-top: 10px;
+}
+.psdz-img-box1 {
+	width:1003px;
+}
+.psdz-img-box1 #psdz-img {
+    float: left;
+    margin-right: 7.5px;
+}
+.psdz-img1, .psdz-img2 {
+    width: 500px;
+    height: 210px;
+    background: #94d3e6;
+}
+.psdz-img-box1 #psdz-img {
+    float: left;
+    margin-right: 7.5px;
+}
+#psdz-img-over {
+    float: left;
+}
+.psdz-img-box1 img {
+    width: 160px;
+    height: 210px;
+}
+.psdz-img-box2 #psdz-img {
+    margin-right: 7.5px;
+}
+#psdz-img .psdz-img2 {
+    float: left;
+    margin-top: 7.5px;
+    background: #f69fb0 !important;
+}
+.psdz-img-box2 #psdz-img img {
+    width: 160px;
+    height: 210px;
+    float: left;
+    margin-top: 7.5px;
+    margin-left: 8px;
+}
+.psdz-img-box2 #psdz-img-over2 img {
+    width: 160px;
+    height: 210px;
+    float: left;
+    margin-top: 7.5px;
+}
+#psdz-img-over2 img {
+    margin-left: 7px;
+}
+/*定制展示-配饰定制结束*/
+/*定制展示-精品创艺开始*/
+.jpcy-header-title {
+	width: 1003px;
+	border-bottom: 1px solid #cccccc;
+	padding-bottom: 5px;
+	font-size: 20px;
+	margin-top:30px;
+}
+.jpcy-header-title span {
+    font-size: 20px;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+.jpcy-img-box {
+	width: 1003px;
+	padding-top: 10px;
+}
+.jpcy-img-box1 {
+	width:1003px;
+}
+.jpcy-img-box1 #jpcy-img {
+    float: left;
+    margin-right: 7.5px;
+}
+.jpcy-img1, .jpcy-img2 {
+    width: 500px;
+    height: 210px;
+    background: #94d3e6;
+}
+.jpcy-img-box1 #jpcy-img {
+    float: left;
+    margin-right: 7.5px;
+}
+#jpcy-img-over {
+    float: left;
+}
+.jpcy-img-box1 img {
+    width: 160px;
+    height: 210px;
+}
+.jpcy-img-box2 #jpcy-img {
+    margin-right: 7.5px;
+}
+#jpcy-img .jpcy-img2 {
+    float: left;
+    margin-top: 7.5px;
+    background: #f69fb0 !important;
+}
+.jpcy-img-box2 #jpcy-img img {
+    width: 160px;
+    height: 210px;
+    float: left;
+    margin-top: 7.5px;
+    margin-left: 8px;
+}
+.jpcy-img-box2 #jpcy-img-over2 img {
+    width: 160px;
+    height: 210px;
+    float: left;
+    margin-top: 7.5px;
+}
+#jpcy-img-over2 img {
+    margin-left: 7px;
+}
+/*定制展示-精品创艺结束*/
+/*底部居中图片*/
+#center-img {
+	margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+	width:1003px;
+}
+#center-img img {
+	width:100%;
+	height:100%;
+}

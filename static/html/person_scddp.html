@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block title %}
+    收藏的店铺
+{% endblock %}
+{% block main %}
+    <div style="width: 1000px;margin: 0 auto;">
+    <p style="margin: 5px 0px;font-weight: 200;font-size: 11px;color: #999;">爱定网是全球第一家专业的服装定制公司平台，汇集了上万家诚信、正规的服装定制公司，免费供您选择！让您足不出户，尽可享受方便快捷的定制服务。</p>
+     </div>
+    <div class="user-infocont">
+        {% include 'left_side.html' %}
+        <div class="xssp-right">
+            <div class="check-box">
+                <li style="float: left;list-style-type: none;"><input type="checkbox" id="CheckAll-store"><label style="margin-left: 4px;">全选</label></li>
+                <li style="float: left;list-style-type: none;">
+                    <button type="button" id="delete-singlestos">删除</button>
+                </li>
+            </div>
+            <table class="table" id="mycheckbox" style="margin-top: 40px;">
+                <tbody>
+
+                {% for i in stores %}
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="id" value="{{ i.store.id }}"
+                                   style="float: left;margin-right: 10px;margin-top: 45px;">
+                            <div id="sc_store_box">
+                                <div class="store_img">
+                                    <img src="/media/{{ i.store.headpicture }}">
+                                </div>
+                                <div class="store_info_box">
+                                    <ul>
+                                        <li><span>{{ i.store.companyname }}</span></li>
+                                        <li style="margin-top: 10px;"><span>卖家：{{ i.store.seller }}</span></li>
+                                        <li style="margin-top: 10px;"><span>主营：{{ i.store.business }}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </td>
+                        <td>
+                            <a href="{{ i.store.link }}" target="_blank">
+                                <button type="button" class="click_enter">点击进入
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="paging-boxs" style="margin-top: 0px;clear: both;">
+            <div class="paging-select">
+                <ul>
+                    {% if stores.has_previous %}
+                        <li class="previous"><a
+                                href="?page={{ stores.previous_page_number }}" class="turepage_btn">上一页</a>
+                        </li>
+                    {% else %}
+                        <li class="previous disabled"><a href="#" class="turepage_btn">上一页</a></li>
+                    {% endif %}
+
+
+                    <li class="num_page_box">
+                        {% for page in paginator.page_range %}
+                            <a href="?page={{ page }}">{{ page }}</a>
+                        {% endfor %}
+                    </li>
+
+
+                    <li class="yc">
+                        <a href="javascript:;"> ...</a>
+                    </li>
+
+                    {% if stores.has_next %}
+                        <li class="next"><a
+                                href="?page={{ stores.next_page_number }}" class="turepage_btn">下一页</a>
+                        </li>
+                    {% else %}
+                        <li class="next disabled"><a href="#" class="turepage_btn">下一页</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+    <script>
+        $(document).ready(function () {
+            var wid = $(".num_page_box").width();
+            if (wid < 142) {
+                $(".yc").css("display", "none");
+            }
+
+            $(".colle_store").css("color", "#ff6162");
+        });
+    </script>
+{% endblock %}

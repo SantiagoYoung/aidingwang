@@ -1,0 +1,445 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    商品详情页
+{% endblock %}
+
+{% block main %}
+    <div style="width: 100%;height: 875px;margin-top: 50px;">
+    <div class="detail-ware">
+        <div class="commodity-left-box">
+            <div class="ware-left">
+                <img src="/media/{{ data.goods_details.picture }}" class="autoImg" style="height: 673px;">
+            </div>
+            <ul id="goods_preview">
+                <li><a href="javascript:;"><img src="/media/{{ data.goods_details.picture }}" alt="商品预览图"></a>
+                </li>
+                {% for i in pictures %}
+                <li class="img-li2"><a href="javascript:;"><img src="/media/{{ i.picture }}" alt="商品预览图"></a>
+                </li>
+                {% endfor  %}
+            </ul>
+        </div>
+        <div class="ware-right">
+            <ul>
+                <li>
+                    <div class="goods-name-box">
+                        <h3 class="goods-name">{{ data.goods_details.goods_name }}
+                        </h3>
+                    </div>
+                </li>
+                <li>
+                    <span class="orcost-title">原价：</span>
+                    <div>
+                            <del  class="orcost-title-num">{{ data.goods_details.original_price }}.00</del>
+                    </div>
+                </li>
+                <li class="nowcost-priceli">
+                    <span class="nowcost-title">现价</span>
+                            <span class="nowcost-title_num">￥{{ data.goods_details.current_price }}.00</span>
+                </li>
+                <li style="padding-top: 25px;">
+                    <span class="seller-title">卖家</span>
+                    <div>
+                <span style="margin-left: 10px;font-weight: 200;font-size: 14px;color: #333;">
+                        {{ data.goods_details.seller }}
+                </span>
+                    </div>
+                </li>
+            </ul>
+                       <div class="provide-select-box" style=" margin-top: 31px;">
+                    <span class="provide-title" style="margin-right: 30px;">提供</span>
+                       <ul class="provide-list">
+                    {% if data.goods_details.is_provide_design == True %}
+                        <li class="provide-title"><div class="set-box">设</div>提供设计</li>
+                    {% endif %}
+                    {% if data.goods_details.is_provide_make == True %}
+                        <li class="provide-title"><div class="system-box">制</div>提供制作</li>
+                    {% endif %}
+                       </ul>
+            </div>
+                    <div class="goods-color-box" style="margin-top: 7px;">
+                <span class="shops-color-title">颜色: </span>
+            <ul class="color-list">
+                                {% for color in colors %}
+                                    <li>{{ color }} </li>
+                                {% endfor %}
+            </ul>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="javascript:;"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="need-select-box" style="margin-top: 17px;">
+                    <span class="need-title" style="margin-right: 30px;">需求</span>
+                <ul class="demand-list">
+                {% if data.goods_details.is_customize_size == True %}
+                    <li class="provide-title">定制尺码</li>
+                {% endif %}
+                {% if data.goods_details.is_customize_patten == True %}
+                    <li class="provide-title">定制图案</li>
+                {% endif %}
+                {% if data.goods_details.is_customize_style == True %}
+                    <li class="provide-title">定制款式</li>
+                {% endif %}
+                </ul>
+            </div>
+            <ul>
+                <li style="padding-top: 31px;">
+                    <span style="color: #6c6c6c;font-size: 14px;font-weight: 200;">库存{{ data.goods_details.inventory }}件</span>
+                </li>
+                <li style="padding-top: 29px;">
+                    <div class="btn-goumai"><a href="{{ data.goods_details.goods_url }}" target="_blank">立刻购买</a></div>
+                </li>
+            </ul>
+
+
+            <div class="ware-right-down">
+                <ul class="operation-selects">
+                    <li>
+                    <button type="button" value="" style="cursor: pointer;" id="goods_collection" name="status" title="收藏商品">
+                   <img src="/static/img/u45.png" width="12"> {{ data.goods }}
+                    </button>
+                    </li>
+                    <li>
+
+         <button type="button"  value=""  style="cursor: pointer;" id="shops-collection" name="status">
+             <img src="/static/img/u45.png" width="12" title="收藏店铺" style="    position: relative;right: 3px;">{{ data.store }}
+         </button>
+                    </li>
+                    <li class="show-shopshref">
+                        <button type="button" id="shares-shopshref"><span style="color: #ff5250;">＋</span>分享</button>
+                        <ul>
+                            <li>
+                                <div class="shops-href-box">
+                                    <input type="text" value="" id="foo">
+                                    <button type="button" class="btn" data-clipboard-target="#foo" aria-label="复制成功!去分享给其他人吧~~~" id="copy">
+                                        复制
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button" data-toggle="modal" data-target="#complaints">投诉</button>
+                    </li>
+                    <li class="sonsulting-list">
+                         <a href="http://wpa.qq.com/msgrd?v=3&amp;uin={{ store.QQ }}&amp;site=qq&amp;menu=yes" target="_blank">
+                        <button type="button" style="width:90px;">在线咨询
+                        <img src="/static/img/saling/u320.png/" width="20">
+                        </button>
+                             </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   </div>
+    <div class="spxq">
+        <div class="spxq-header">
+           <span  class="spxqy_title">商品详情</span>
+        </div>
+       <div class="goods-introduces">
+          <div class="goods-intro-header">商品介绍</div>
+           <div class="goods-content-left">
+            <img src="/static/img/company_setting/u14.png">
+             <span class="horizontal-line"></span>
+           </div>
+           <div class="goods_intro">
+                          {{ data.goods_details.goods_introduce }}
+           </div>
+           <div class="goods-content-right">
+               <span class="horizontal-line-left"></span>
+            <img src="/static/img/company_setting/u14.png">
+           </div>
+       </div>
+        <div class="theoverall-design">
+           <div  class="ztks_title">整体款式</div>
+        <div class="ztks-imgs">
+            {% for i in data.show_picture %}
+            <img src="/media/{{i.picture}}" width="640" height="960">
+            {% endfor %}
+        </div>
+        </div>
+        <div class="theoverall-design">
+           <div  class="ztks_title">细节做工</div>
+         <div class="ztks-imgs">
+            {% for i in data.detail_picture %}
+            <img src="/media/{{i.picture_detail}}" width="640" height="960">
+            {% endfor %}
+        </div>
+        </div>
+        <div id="goods_details">
+            <div class="fwsm_title">服务说明</div>
+           <div class="goods-content-left">
+            <img src="/static/img/company_setting/u14.png">
+             <span class="horizontal-line"></span>
+           </div>
+           <div class="service_instru">
+          {{ data.goods_details.server_introduce }}
+           </div>
+           <div class="goods-content-right">
+               <span class="horizontal-line-left"></span>
+            <img src="/static/img/company_setting/u14.png">
+           </div>
+         </div>
+    </div>
+
+    <!-- 投诉模态框 -->
+    <div class="modal fade" id="complaints" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                      &times;
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">投诉</h4>
+              </div>
+              <div class="modal-body">
+                  <textarea id="cpmpla-content">
+
+                  </textarea>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" id="submit-spts">
+                      提交
+                  </button>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    {% include 'footer.html' %}
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/clipboard.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#goods_details p").eq(0).addClass("goods_introtext");
+             $("#goods_details p").eq(1).addClass("goods_imgshow");
+
+            $(".spec-items img:eq(0)").addClass("shops-thumbnail");
+            $(".spec-items img").mouseover(function () {
+                $(this).addClass("shops-thumbnail");
+            });
+            $(".spec-items img").mouseout(function () {
+                $(this).removeClass("shops-thumbnail");
+            });
+
+              $("#submit-spts").click(function () {
+                  var compla = $("#cpmpla-content").val();
+                      $.ajax({
+                      type: 'post',
+                      url: '/Accounts/complaint/',
+                      data: {
+                          body: compla
+                      },
+                      success:function (data) {
+                        if (data.status = 200) {
+                            alert("投诉成功！");
+                            window.location.reload();
+                        }
+                      },
+                      error:function () {
+                          alert("投诉失败！");
+                      }
+                  });
+              });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#shares-shopshref").mouseover(function () {
+                var sharessp = window.location.href;
+                $("#foo").val(sharessp);
+            });
+
+            $(".show-shopshref").mouseover(function () {
+                $(".shops-href-box").show();
+            });
+            $(".show-shopshref").mouseout(function () {
+                $(".shops-href-box").hide();
+            });
+            //显示隐藏复制内容div
+            $("#shares-shopshref").click(function () {
+                var sharessp = window.location.href;
+                $("#foo").val(sharessp);
+            });
+
+            $(".show-shopshref").mouseover(function () {
+                $(".shops-href-box").show();
+            });
+            $(".show-shopshref").mouseout(function () {
+                $(".shops-href-box").hide();
+            });
+
+        });
+
+        //复制链接
+        var clipboard = new Clipboard('.btn');
+        clipboard.on('success', function (e) {
+            var msg = e.trigger.getAttribute('aria-label');
+            alert(msg);
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger:', e.trigger);
+
+            e.clearSelection();
+        });
+    </script>
+
+    <script>
+{#     function knowImgSize(id) {#}
+{#        var idWidth = $(id).width(),#}
+{#            idHeight = $(id).height();#}
+{#        $(id + ' img ').each(function(index,img) {#}
+{#           var img_w = $(this).width(),#}
+{#               img_h = $(this).height();#}
+{##}
+{#        if (img_w < idWidth) {#}
+{#            var height = img_h * idWidth / img_w;#}
+{#            $(this).css({"width":idWidth,"height":height});#}
+{#        }#}
+{#        });#}
+{#     }#}
+{##}
+{#    // 初始化#}
+{# $(function(){#}
+{#	knowImgSize(".ware-left");#}
+{# });#}
+
+
+    function AutoImg(options) {
+
+	this.config = {
+		autoImg     : '.autoImg',     // 未知图片dom节点
+		parentCls   : '.ware-left'    // 父节点
+	};
+
+	this.cache = {
+
+	};
+
+	this.init(options);
+ }
+
+ AutoImg.prototype = {
+
+	 init: function(options){
+		this.config = $.extend(this.config, options || {});
+		var self = this,
+			_config = self.config;
+
+		$(_config.autoImg).each(function(index,img){
+
+			var src = img.src,
+				parentNode = $(img).closest(_config.parentCls),
+				parentWidth = $(parentNode).width();
+
+			// 先隐藏原图
+			img.style.display = 'none';
+			img.removeAttribute('src');
+
+
+
+			// 获取图片头尺寸数据后立即调整图片
+			imgReady(src, function (width,height) {
+
+				// 等比例缩小
+				if (width > parentWidth) {
+					height = parentWidth / width * height,
+					width = parentWidth;
+					img.style.width = width + 'px';
+{#					img.style.height = height + 'px';#}
+				};
+				// 显示原图
+				img.style.display = '';
+
+				img.setAttribute('src', src);
+
+			});
+		});
+	 }
+ };
+
+ var imgReady = (function(){
+    var list = [],
+        intervalId = null;
+
+    // 用来执行队列
+    var queue = function(){
+
+        for(var i = 0; i < list.length; i++){
+            list[i].end ? list.splice(i--,1) : list[i]();
+        }
+        !list.length && stop();
+    };
+
+    // 停止所有定时器队列
+    var stop = function(){
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+    return function(url, ready, error) {
+        var onready = {},
+            width,
+            height,
+            newWidth,
+            newHeight,
+            img = new Image();
+        img.src = url;
+
+        // 如果图片被缓存，则直接返回缓存数据
+        if(img.complete) {
+            ready(img.width, img.height);
+            return;
+        }
+        width = img.width;
+        height = img.height;
+
+        // 加载错误后的事件
+        img.onerror = function () {
+            error && error.call(img);
+            onready.end = true;
+            img = img.onload = img.onerror = null;
+        };
+
+        // 图片尺寸就绪
+        var onready = function() {
+            newWidth = img.width;
+            newHeight = img.height;
+            if (newWidth !== width || newHeight !== height ||
+                // 如果图片已经在其他地方加载可使用面积检测
+                newWidth * newHeight > 1024
+            ) {
+                ready(img.width, img.height);
+                onready.end = true;
+            };
+        };
+        onready();
+        // 完全加载完毕的事件
+        img.onload = function () {
+            // onload在定时器时间差范围内可能比onready快
+            // 这里进行检查并保证onready优先执行
+            !onready.end && onready();
+            // IE gif动画会循环执行onload，置空onload即可
+            img = img.onload = img.onerror = null;
+        };
+        // 加入队列中定期执行
+        if (!onready.end) {
+            list.push(onready);
+            // 无论何时只允许出现一个定时器，减少浏览器性能损耗
+            if (intervalId === null) {
+                intervalId = setInterval(queue, 40);
+            };
+        };
+    }
+})();
+$(function(){
+		new AutoImg({});
+	});
+    </script>
+{% endblock %}

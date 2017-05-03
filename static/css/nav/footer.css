@@ -1,0 +1,56 @@
+#footer{
+	height:286px;
+	background-color: #f4f4f4;
+	border:1px solid gainsboro;
+}
+#outer{
+	float:left;
+	position:relative;
+	left:50%;
+	margin-left:-20px;
+}
+dt,dd,#wechat_num{
+	margin-top:22px;
+	color:#666666;
+	text-align: center;
+	font-size:16px;
+}
+dt,#wechat_num{
+	font-size:20px;
+	font-weight:bolder;
+}
+#hotline,#help,#about_us,#follow_us,#wechat{
+	float:left;
+	right:50%;
+	position:relative;
+	margin-left:103px;
+}
+#tel_icon{
+	position:relative;
+	left:-1580px;
+	top:18px;
+}
+#wechat_pic{
+	position:relative;
+	left:18px;
+	top:10px;
+}
+#friend_link{
+	position:relative;
+	clear:both;
+	border-top:2px solid #ecece4;
+	border-bottom:2px solid #ecece4;
+	width:1150px;
+	left:50%;
+	top:15px;
+	margin-left:-575px;
+	margin-bottom:15px;
+	height:25px;
+	line-height: 25px;
+}
+#copyright{
+	position: relative;
+	text-align: center;
+	top:20px;
+	color:#666666;
+}

@@ -1,0 +1,87 @@
+#right_content{
+	display:inline-block;
+	position:relative;
+	top:-630px;
+	left:20px;
+	height:800px;
+}
+#oper label,#oper span{
+	color:#666;
+	margin-right: 10px;
+}
+#company_list{
+	height:700px;
+}
+#company_list .info{
+	border-top:1px dashed gainsboro;
+	width:820px;
+	position:relative;
+	top:10px;
+	height:126px;
+
+}
+#company_list #img_frame{
+	display: inline-block;
+	width:140px;
+	height:96px;
+	border:1px solid gainsboro;
+	text-align: center;
+}
+#company_list #img_frame img{
+	position: relative;
+	top:8px;
+}
+.info table tr td:nth-child(1){
+	position: relative;
+	left:20px;
+}
+.info table tr td:nth-child(2){
+	position: relative;
+	left:40px;
+	top:10px;
+}
+.info table tr td:nth-child(3){
+	position: relative;
+	left:55px;
+	top:15px;
+}
+.info table tr td:nth-child(3) p{
+	margin-bottom:15px;
+}
+.info table .btn_enter{
+	position: relative;
+	left:420px;
+	top:10px;
+	width:80px;
+	height:25px;
+	border:1px solid gainsboro;
+	border-radius:3px;
+	background-color: #fff;
+	font-size: 12px;
+}
+#company_list #pagination{
+	position: relative;
+	left:200px;
+	top:50px;
+}
+#company_list #pagination ul li{
+	float:left;
+	width:25px;
+	height:30px;
+	margin-left:15px;
+	line-height: 30px;
+	text-align: center;
+}
+#company_list #pagination ul li:first-child{
+	background-color: #AFAFAF;
+
+}#company_list #pagination ul li:first-child a{
+	color:white;
+}
+#company_list #pagination ul li a{
+	font-size:16px;
+	color:#666;
+}
+#company_list #pagination #r_arr{
+	width:65px;
+}

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %}
+    意见反馈
+{% endblock %}
+
+
+{% block main %}
+    <div style="width: 1000px;margin: 0 auto;">
+    <p style="margin: 5px 0px;font-weight: 200;font-size: 11px;color: #999;">爱定网是全球第一家专业的服装定制公司平台，汇集了上万家诚信、正规的服装定制公司，免费供您选择！让您足不出户，尽可享受方便快捷的定制服务。</p>
+     </div>
+    <div id="tickling-box">
+        <div class="comment-tab">
+            <ul id="myTab" class="nav nav-tabs nail-nav">
+{#                <li class="active">#}
+{#                    <a href="#home" data-toggle="tab" class="Website-cons" value="网站建设">#}
+{#                        网站建设#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li><a href="#ios" data-toggle="tab" class="Website-cons" value="网站投诉">网站投诉</a></li>#}
+                <li><a href="#problem-help" data-toggle="tab" class="Website-cons" value="问题求助">问题求助</a></li>
+
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="home">
+                    <div class="page-btn">
+                        <div>
+                            <button type="button" id="previous-page">上一页</button>
+                        </div>
+                        <div>
+                            <button type="button" id="next-page">下一页</button>
+                        </div>
+                    </div>
+
+
+                    <div class="words-show" id="show_message">
+                        <div id="next_page_num" style="display: none;"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="detail">
+
+            <form method="GET" action="{% url 'message_board' %}">
+
+                {% csrf_token %}
+                <ul class="leaving-list">
+                    <li style="display:none;">
+                        <div class="tickling-sele">
+                            <div class="sele-right">
+                                <label>留言类型：</label>
+
+                                <select id="m_type" name="type">
+{#                                    <option value="网站建设">网站建设</option>#}
+{#                                    <option value="网站投诉">网站投诉</option>#}
+                                    <option value="问题求助">问题求助</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li style="padding-top: 25px;">
+                        <div class="tickling-textarea">
+                            <div class="label-head">
+                                <label>留言内容：</label>
+                            </div>
+                            <div class="textarea-right">
+                                <textarea id="leaving-content" placeholder="请输入留言内容！" name="content"></textarea>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="linkman-boxs">
+                            <div class="label-head">
+                                <label style="margin-left: 11px;">联系方式：</label>
+                                <input style="position:absolute" type="text" value="" id="linkman" placeholder="请输入联系方式！" name="contact"maxlength="11">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </form>
+            <button value="submit-leaveword" id="btn">发表</button>
+        </div>
+    </div>
+     <div style="width: 100%;height: 70px;"></div>
+    {% include 'footer.html' %}
+    <script src="/static/js/leave_message.js"></script>
+{% endblock %}

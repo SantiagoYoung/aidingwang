@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block title %}
+    系统消息
+{% endblock %}
+
+
+{% block main %}
+<div style="width: 1000px;margin: 0 auto;">
+    <p style="margin: 5px 0px;font-weight: 200;font-size: 11px;color: #999;">爱定网是全球第一家专业的服装定制公司平台，汇集了上万家诚信、正规的服装定制公司，免费供您选择！让您足不出户，尽可享受方便快捷的定制服务。</p>
+     </div>
+    <div class="user-infocont">
+        {% include 'left_side.html' %}
+
+        <!-- 系统通知开始 -->
+        <div class="xssp-right">
+            <div style=" height: 30px;margin-bottom: 20px;border-bottom: solid 1px #ccc; margin-bottom: 10px;">
+                <ul>
+                    <li style="float: left"><input type="checkbox" id="CheckAll-goods"><label style="margin-left: 4px;">全选</label></li>
+                    <li style="float: left">
+                        <button type="button" id="delete-csysinfo">删除</button>
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <table class="table" id="goods">
+                <thead style="background: #f2f2f2;">
+                <tr>
+                    <th width="10"></th>
+                    <th width="100">主题</th>
+                    <th width="200">内容</th>
+                    <th width="90">时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for m in info %}
+                    <tr>
+                        <td><input type="checkbox" name="goods_check" value="{{ m.id }}" id="delete-all"></td>
+                        <td>{{ m.message_subject }}</td>
+                        <td>{{ m.message }}</td>
+                        <td>{{ m.send_time }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+<div class="paging-boxs">
+   <div class="paging-select">
+     <ul>
+
+        {% if info.has_previous %}
+        <li class="previous"><a
+                href="?page={{ info.previous_page_number }}" class="turepage_btn">上一页</a>
+        </li>
+        {% else %}
+        <li class="previous disabled"><a href="#" class="turepage_btn">上一页</a></li>
+        {% endif %}
+
+        <li class="num_page_box">
+        {% for page in paginator.page_range %}
+                    <a href="?page={{ page }}">{{ page }}</a>
+        {% endfor %}
+        </li>
+
+           <li class="yc">
+           <a href="javascript:;"> ...</a>
+        </li>
+
+        {% if info.has_next %}
+        <li class="next"><a
+                href="?page={{ info.next_page_number }}" class="turepage_btn">下一页</a>
+        </li>
+        {% else %}
+            <li class="next disabled"><a href="#" class="turepage_btn">下一页</a></li>
+        {% endif %}
+
+     </ul>
+   </div>
+</div>
+
+    {% include 'footer.html' %}
+    <script src="/static/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //全选
+            $("#CheckAll-goods").click(function () {
+                if (this.checked) {
+                    $("#goods :checkbox").prop("checked", true);
+                } else {
+                    $("#goods :checkbox").prop("checked", false);
+                }
+            });
+
+
+            $("#delete-csysinfo").click(function () {
+                {#        var hreer = window.location.href.split("/")[4];#}
+                {#        alert(hreer);#}
+                var print = []
+                $("input:checkbox[name='goods_check']:checked").each(function () {
+                    print.push($(this).val());
+                });
+                console.log(print);
+
+                if (print.length) {
+                    console.log(1);
+                                 $.ajax({
+                    type: "post",
+                    url: " http://127.0.0.1:8001/Accounts/delete_sysmessage/",
+                    data: {
+                        goods_check: print
+                    },
+                    success: function (data) {
+                        alert("删除成功");
+                        window.location.reload();
+                    },
+                    {#               error:function(data) {#}
+                    {#                 alert(2);#}
+                    {#               }#}
+                });
+                }
+
+            });
+        });
+
+        $(document).ready(function(){
+         var wid = $(".num_page_box").width();
+          if(wid < 142) {
+            $(".yc").css("display","none");
+          }
+
+          $(".system_news").css("color","#ff6162");
+          });
+    </script>
+
+{% endblock %}

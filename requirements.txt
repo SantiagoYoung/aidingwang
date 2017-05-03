@@ -1,0 +1,11 @@
+Django==1.7.11
+Pillow==2.3.0
+decorator==3.4.0
+defer==1.0.6
+dirspec==13.10
+django-ckeditor==5.1.1
+django-crispy-forms==1.6.0
+django-security==0.9.3
+django-smtp-ssl==1.0
+html5lib==0.999
+httplib2==0.8

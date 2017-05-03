@@ -1,0 +1,88 @@
+<div class="list-left">
+    <div class="acc-set">
+        <p class="title">账号基本设置</p>
+        <ul>
+
+            <li><a href="/Store/register_information/" class="mydata_a">我的资料</a></li>
+
+
+        {% if not store %}
+            <li><a href="javascript:;" id="no-store">我的店铺</a></li>
+        {% else %}
+            {% if store.status == 2 %}
+               <li><a href="/Store/store_edit/" class="mystore_a">我的店铺</a></li>
+            {% else %}
+                <li><a href="javascript:;" id="audit_in">我的店铺</a></li>
+            {% endif %}
+        {% endif %}
+
+            <li><a href="/Accounts/change_password/" class="modifypass_a">修改密码</a></li>
+
+            {% if  store %}
+            <li><a href="javascript:;" id="store_there">申请店铺</a></li>
+            {% else %}
+            <li><a href="/Store/store_apply" target="_blank" class="apply_store">申请店铺</a></li>
+            {% endif %}
+
+        </ul>
+    </div>
+    <div class="mar-center">
+        <p class="title">销售中心</p>
+        <ul>
+            {% if store  %}
+                {% if store.status == 2 %}
+                    <li><a href="/catalog/send_goods/" target="_blank">上传商品</a></li>
+                {% else %}
+                    <li><a href="javascript:;" target="_blank" id="store_check">上传商品</a></li>
+                {% endif %}
+            {% else %}
+                <li><a href="javascript:;" target="_blank" id="no-store-up">上传商品</a></li>
+            {% endif %}
+
+            <li id="sales-in"><a href="/catalog/sell_room/2/" class="a_href2">销售中</a></li>
+            <li id="already-sold"><a href="/catalog/sell_room/3/" class="a_href3">已销售</a></li>
+            <li id="audit-in"><a href="/catalog/sell_room/0/" class="a_href0">审核中</a></li>
+            <li id="no-passed"><a href="/catalog/sell_room/1/" class="a_href1">未通过</a></li>
+
+
+        </ul>
+    </div>
+    <div class="shop-center">
+    </div>
+    <div class="my-coll">
+        <p class="title">我的收藏</p>
+        <ul>
+            <li><a href="/catalog/store_collection_list" class="colle_store">收藏的店铺</a></li>
+            <li><a href="{% url 'user_collections_list' %}" class="colle_goods">收藏的商品</a></li>
+        </ul>
+    </div>
+    <div class="infor-center">
+        <p class="title">信息中心</p>
+        <ul>
+            <li><a href="/Accounts/tousu/">投诉建议</a></li>
+
+            <li><a href="{% url 'system_information' %}" class="system_news">系统消息</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+       $("#audit_in").click(function () {
+           alert("您的店铺正在审核中，请稍等！");
+       });
+
+      $("#store_there").click(function(){
+           alert("您已入驻过店铺，无法进入！");
+        });
+         $("#no-store").click(function () {
+             alert("您还没有入驻店铺！");
+         });
+        $("#no-store-up").click(function(){
+            alert("您还没有店铺不能上传商品，如需上传商品请入驻店铺！");
+        });
+        $("#store_check").click(function(){
+            alert("您的店铺状态存在问题请与爱定网联系!");
+        });
+    });
+</script>

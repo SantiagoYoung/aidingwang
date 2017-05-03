@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block title %}
+   店铺搜索
+{% endblock %}
+
+{%  block search %}
+<div style="margin-top: 31px;">
+<form action="{% url 'search' %}" method="GET">
+            <div id="search_input">
+                <div class="serin_box">
+                                  <input type="text"  id="search_box" name="shop_search" value="{{ shop_search }}">
+                    </div>
+                                <div style="float: left;">
+                                    <button type="submit" id="btn_search">搜 索</button>
+                    </div>
+            </div>
+</form>
+    </div>
+{% endblock %}
+
+{% block main %}
+ <div class="shopsearch-shoplist">
+
+{% for store in stores %}
+  <div class="m-shoplist">
+   <div id="list-content" class="list-content small-list">
+     <ul id="list-container">
+        <li class="list-item">
+            <ul class="clearfix">
+
+
+              <li class="list-img">
+
+                  <a title="" href="{{ store.link }}" title="点击进入店铺">
+                      <img src="{{ store.headpicture.url }}">
+                  </a>
+              </li>
+              <li class="list-info">
+                <h4>{{ store.name }}</h4>
+                <p>
+                 <span>卖家：{{ store.seller.username }}</span>
+                 <span class="shop-info-list">
+                  <a href="" target="_blank"></a>
+                 </span>
+                </p>
+                <p>
+                 <p class="main-cat">
+                   <label>主营：</label>
+                   <a href="" target="_blank">
+                    {{ store.business }}
+                   </a>
+                  </span>
+                </p>
+              </li>
+            </ul>
+        </li>
+     </ul>
+   </div>
+
+  </div>
+ {% endfor %}
+
+
+ </div>
+
+<div class="paging-boxs" style="padding-top: 34px;">
+   <div class="paging-select">
+<ul>
+    {% if stores.has_previous %}
+        <li><a href="{% url 'search' %}?shop_search={{ shop_search }}&page={{ stores.previous_page_number }}" class="turepage_btn">上一页</a>
+        </li>
+    {% else %}
+        <li><a href="#" class="turepage_btn">上一页</a></li>
+    {% endif %}
+
+    <li class="num_page_box">
+
+    {% for page in paginator.page_range %}
+   <a href="{% url 'search' %}?goods_search={{ shop_search }}&page={{ page }}" >{{ page }}</a>
+    {% endfor %}
+
+    </li>
+           <li class="yc">
+           <a href="javascript:;"> ...</a>
+        </li>
+    {% if stores.has_next %}
+        <li class="next"><a
+                href="{% url 'search' %}?shop_search={{ shop_search }}&page={{ stores.next_page_number }}" class="turepage_btn">下一页</a>
+        </li>
+    {% else %}
+        <li class="next disabled"><a href="#" class="turepage_btn">下一页</a></li>
+    {% endif %}
+</ul>
+   </div>
+</div>
+
+
+ {% include 'footer.html' %}
+
+    <script>
+       $(document).ready(function(){
+         var wid = $(".num_page_box").width();
+          if(wid < 142) {
+            $(".yc").css("display","none");
+          }
+          });
+    </script>
+{% endblock %}

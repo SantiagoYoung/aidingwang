@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block title %}
+   店铺编辑
+{% endblock %}
+
+{% block main %}
+    <div style="width: 1000px;margin: 0 auto;">
+    <p style="margin: 5px 0px;font-weight: 200;font-size: 11px;color: #999;">爱定网是全球第一家专业的服装定制公司平台，汇集了上万家诚信、正规的服装定制公司，免费供您选择！让您足不出户，尽可享受方便快捷的定制服务。</p>
+     </div>
+    <div class="user-infocont">
+        {% include 'left_side.html' %}
+        <div id="right_info" class="store_editor" style=" margin-top: 45px;">
+            <div>
+                <div>{{ msg }}</div>
+
+                <form action="/Store/store_edit/" method="post" enctype="multipart/form-data">
+                    <span class="dpxx">店铺信息：</span>
+                    <ul>
+                        <li>
+
+                            <label>卖家名：</label>
+                            {{ user.username }}
+                        <li class="dpmc">
+                            <label>店铺名称：</label>{{ form.name }}
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+
+                            <label class="phone-number-title">手机号：</label> {{ form.phone }}
+                        </li>
+                        <li>
+                            <label class="qq-number-title">QQ号：</label> {{ form.QQ }}
+
+                        </li>
+
+                        <li>
+                            <label class="store-url-title">店铺链接地址：</label> {{ form.link }}
+                        </li>
+                        <li>
+                            <label class="industry-type-title">行业类型：</label>{{ form.kinds }}
+
+
+                        </li>
+                        <li>
+                            <label class="industry-nature-title">行业性质：</label>{{ form.character }}
+                        </li>
+
+                        <li>
+                            <label></label>
+                        </li>
+                    </ul>
+                    <div style="margin-bottom: 20px;" class="dplx">
+                        <label class="store-type-title">店铺类型：</label>{{ form.industry }}
+                    </div>
+                    <ul>
+                        <li class="dpzy">
+                            <label>主营：</label>{{ form.business }}
+                        </li>
+{#                        <li>#}
+{#                            <label>品牌或公司名称：</label> {{ form.company }}#}
+{#                        </li>#}
+                        <li class="dpjs">
+                            <label>店铺介绍：</label>{{ form.introduction }}
+                        </li>
+                    </ul>
+                    <ul>
+                        <span class="qyxx">企业信息：</span>
+                        <li>
+                            <label>企业Logo:</label>{{ form.headpicture }}
+                        </li>
+                        <li>
+                            <label>企业名称：</label> {{ form.companyname }}
+                        </li>
+                        <li>
+                            <label>企业法人：</label> {{ form.connectioner }}
+                        </li>
+                        <li>
+                            <label>企业地址：</label> {{ form.company_adress }}
+                        </li>
+                        <li>
+                            <label>联系电话：</label> {{ form.connection_number }}
+                        </li>
+                        <li class="qyqq">
+                            <label>企业QQ：</label> {{ form.company_QQ }}
+                        </li>
+                        <li class="fr">
+                            <label>法人：</label> {{ form.connectioner }}
+                        </li>
+                        <li>
+                            <label>营业执照：</label> {{ form.business_license }}
+                        </li>
+                        <li class="qyjs">
+                            <label>企业介绍：</label> {{ form.company_introduce }}
+                        </li>
+                    </ul>
+                    <div>
+                        <input type="submit" id="submit-storejoin" value="提交" style="margin-left: 94px;">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+ <div style="width: 100%;height: 60px;clear: both;"></div>
+    {% include 'footer.html' %}
+
+{#    <script>#}
+{#        $(".piaochecked").on("click", function () {#}
+{#            $(this).hasClass("on_check") ? $(this).removeClass("on_check") : $(this).addClass("on_check");#}
+{##}
+{#        });#}
+{#          $(".mystore_a").css("color","#ff6162");#}
+{#    </script>#}
+    <script>
+    $(document).ready(function () {
+        var dpbj = window.location.href.split("/")[4];
+     if (dpbj == "store_edit") {
+        $(".mystore_a").css("color","#ff5250");
+     }
+    });
+    </script>
+{% endblock %}

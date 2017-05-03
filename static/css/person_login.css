@@ -1,0 +1,29 @@
+* {
+	margin:0;
+	padding:0;
+}
+.zc-box {
+	width: 350px;
+	height: 285px;
+	border: 1px solid #ccc;
+	margin: 0 auto;
+}
+.useremail-box,#login-box {
+	margin-top: 20px;
+	margin-left: 22px;
+}
+#user-email {
+	width: 300px;
+	height: 42px;
+	margin-top: 10px;
+}
+#login-pass {
+	width: 300px;
+	height: 42px;
+	display: block;
+	margin-top: 10px;
+}
+.qrmm-box {
+	margin-left: 22px;
+	margin-top: 10px;
+}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+登录界面
+{% endblock %}}
+
+{% block main %}
+
+<div id="login_frame" style="margin-bottom: 200px;">
+    <div class="error-text"> {{ msg }} </div>
+    <form role="form" action="/Accounts/login/" method="post" style="width: 326px;margin:0 auto;">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputEmail1" style="font-size:15px;margin-bottom: 10px;">账号</label><br/>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" style="width:300px;height:42px;">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" style="font-size:15px;margin-bottom: 10px;">密码</label><br/>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password"  style="width:300px;height:42px;">
+      </div>
+        
+        <label style="position:relative;" class="logo-label"> <input type="checkbox" class="form-control" style="position: absolute;top:-5px;left:0;">&nbsp&nbsp&nbsp&nbsp记住我的登录信息</label>
+         <button type="submit" class="btn btn-default" style="float:right">登录</button>
+      <div class="checkbox" style="margin-bottom: 20px;clear: both;">
+          <a href="/Accounts/register/" title="登录" target="_blank" style="margin-right: 6px;">注册</a><span>|</span>
+          <a href="/Accounts/forget_password/" target="_blank" title="忘记密码">忘记密码？</a>
+      </div>
+  </form>
+
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

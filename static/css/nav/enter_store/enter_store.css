@@ -1,0 +1,33 @@
+#content{
+	height:auto;
+	margin-bottom:-100px;
+}
+#right_info{
+	position: relative;
+	left:420px;
+	top:-140px;
+}
+#right_info h1{
+	position: relative;
+	left:215px;
+	font-size:36px;
+	color:#666;
+	margin-bottom:20px;
+}
+#right_info #btn_join{
+	position: relative;
+	height:35px;
+	color:#666;
+	border:1px solid gainsboro;
+	background-color: #fff;
+	border-radius:5px;
+	width:80px;
+	font-size:12px;
+	left:150px;
+}
+#right_info #protocal{
+	color:#FF5250;
+	font-size:11px;
+	position: relative;
+	left:150px;
+}

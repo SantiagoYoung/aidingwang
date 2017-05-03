@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+    上传范例
+{% endblock %}
+
+{% block main %}
+
+
+    <div id="theme-name">
+        {{ goods_detail_title|safe }}
+    </div>
+    <div id="theme-content">
+        {{ goods_detail_body|safe }}
+    </div>
+
+
+
+    {% include 'footer.html' %}
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %}
+    忘记密码
+{% endblock %}
+
+{% block main %}
+
+    <div class="zhmm-box">
+        <form id="zhmm-firm">
+            <div class="zhmm-ts">
+                <p>请输入您的用户名或电子邮箱地址。您会收到一封包含创建新密码链接的电子邮件。</p>
+                {{ test }}
+            </div>
+            <div class="zhmm-srbox">
+                <p style="float: right;margin-right: 10px;color: red;">    {{ msg }}  </p>
+                <form method="POST" action="/Accounts/forget_password">
+
+                    <div class="zhmm-sr">
+                        <label>邮箱</label>
+                        <input type="email" id="user-email-zhmm" name="email">
+                    </div>
+                    <div class="zhmm-sr">
+                        <label>密码</label>
+                        <input type="password" id="zhmm-password" name="password" maxlength="15" minlength="6">
+                    </div>
+                    <div class="zhmm-sr">
+                        <label>确认密码</label>
+                        <input type="password" id="zhmm-password" name="confirm_password" maxlength="15" minlength="6">
+                    </div>
+                    <div class="code-box">
+                        <label>验证码</label>
+                        <input type="text" id="user-code" name="captcha">
+                    </div>
+                    <div class="hqxmm-box">
+                        <span>验证码将通过电子邮件发送给您。</span>
+                        <input type="button" id="obtain-code" value="获取验证码" onclick="settime(this)">
+                    </div>
+                    <button type="submit" id="submit-zhmm">提交</button>
+                </form>
+
+            </div>
+            <div class="zhmm-footer">
+                <a href="/Accounts/login/">登录</a>|<a href="/Accounts/register/">注册</a>
+            </div>
+    </div>
+    <script src="/static/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#obtain-code").click(function () {
+                var email = $('#user-email-zhmm').val();
+                var code = $('#obtain-code').val();
+                if (email.length) {
+                    $.ajax({
+                    type: "POST",
+                    url: "/Accounts/forget_getcap/",
+                    data: {
+                        email: $("#user-email-zhmm").val()
+                    },
+                    success: function (data) {
+                        alert("获取成功,请注意查收邮件！");
+                    }
+                    });
+                    }
+                });
+
+            $("#submit-zhmm").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/Accounts/change_password/",
+                    data: {
+                        email: $("#user-email-zhmm").val(),
+                        captcha: $("#user-code").val()
+                    },
+                    success: function (data) {
+                        var zhmm = JSON.parse(data);
+                        if (zhmm.status == 400) {
+                            alert(zhmm.message);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+{#<script type="text/javascript">#}
+{#var countdown=60;#}
+{#    function settime(obj) {#}
+{#            if (countdown == 0) {#}
+{#                obj.removeAttribute("disabled");#}
+{#                obj.value = "获取验证码";#}
+{#                countdown = 60;#}
+{#                return;#}
+{#            } else {#}
+{#                obj.setAttribute("disabled", true);#}
+{#                obj.value = "重新发送(" + countdown + ")";#}
+{#                countdown--;#}
+{#            }#}
+{#setTimeout(function() {#}
+{#    settime(obj) }#}
+{#    ,1000)#}
+{#}#}
+{#</script>#}
+{% endblock %}

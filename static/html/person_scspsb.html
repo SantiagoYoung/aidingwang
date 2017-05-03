@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    上传商品失败
+{% endblock %}
+
+{% block main %}
+
+    <div id="gcspsp-ts">
+        <div class="ts-1"><span class="success-icon" style="background: #FF3300;">×</span> <span>{{ msg }}</span></div>
+        <div class="ts-btn">
+            <a href="/catalog/send_goods">
+                <button class="jxsc-btn">返回上传页面</button>
+            </a>
+            <a href="/">
+                <button class="hdzy-btn">回到主页</button>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

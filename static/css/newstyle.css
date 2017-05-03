@@ -1,0 +1,530 @@
+body,html,h1,h2,h3,h4,h5,h6 {
+	font-family: helvetica, "microsoft yahei", "微软雅黑", arial, sans-serif;
+}
+a, a:hover, a:visited, a:active, a:link {
+	text-decoration: none;
+}
+.center {
+	text-align: center;
+}
+/*模态框的文字颜色*/
+.modal {
+	color: #000000;
+}
+.modal .modal-content {
+	border-radius: 10px;
+}
+
+/*浏览器滚动条样式*/
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    border: 0;
+}
+::-webkit-scrollbar-button {
+    display: none;
+}
+::-webkit-scrollbar-track {
+    display: none;
+}
+::-webkit-scrollbar-track-piece {
+    background-color: #EFEFEF;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border-radius: 5px;
+}
+
+/*修改header部分固定在顶部开始*/
+.page-header {
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
+	height: auto;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	background: #FFFFFF;
+}
+/*修改header部分固定在顶部结束*/
+
+/*顶部导航栏的背景色开始*/
+
+.hor-menu .logo {
+    float: left;
+    width: 100px;
+    margin-right: 10px;
+    margin-top: 11px;
+}
+.hor-menu .logo img {
+    width: 100%;
+}
+.page-header .page-header-menu {
+	background: #123F58;
+}
+.page-header .page-header-menu .hor-menu .navbar-nav > li.open > a, .page-header .page-header-menu .hor-menu .navbar-nav > li > a {
+	color: #a4abb3;
+}
+.page-header .page-header-menu .hor-menu .navbar-nav > li.open > a, .page-header .page-header-menu .hor-menu .navbar-nav > li > a:hover {
+	background: #144a69 !important;
+}
+.page-header .page-header-menu .hor-menu .navbar-nav > li.active > a {
+	background: #144a69 !important;
+}
+.page-header .page-header-menu .search-form .input-group .form-control {
+	color: #FFFFFF;
+	background: #144a69;
+}
+.page-header .page-header-menu .search-form .input-group {
+	background: #144a69;
+}
+.page-header .page-header-menu .search-form .input-group .input-group-btn .btn.submit > i {
+	color: #FFFFFF;
+}
+/*.page-header .page-header-menu {
+	background: #4778C7;
+}
+.page-header .page-header-menu .hor-menu .navbar-nav > li.open > a, .page-header .page-header-menu .hor-menu .navbar-nav > li > a {
+	color: #90B2F8;
+}
+.page-header .page-header-menu .hor-menu .navbar-nav > li.open > a, .page-header .page-header-menu .hor-menu .navbar-nav > li > a:hover {
+	background: #7E9BDF !important;
+}
+.page-header .page-header-menu .hor-menu .navbar-nav > li.active > a {
+	background: #7E9BDF !important;
+}
+.page-header .page-header-menu .search-form .input-group .form-control {
+	color: #FFFFFF;
+	background: #7E9BDF;
+}
+.page-header .page-header-menu .search-form .input-group {
+	background: #7E9BDF;
+}
+.page-header .page-header-menu .search-form .input-group .input-group-btn .btn.submit > i {
+	color: #FFFFFF;
+}*/
+/*顶部导航栏的背景色结束*/
+
+/*修改搜索部分的placeholder的颜色开始*/
+.search-form :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #FFFFFF !important;  
+}
+.search-form ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #FFFFFF !important;
+}
+.search-form input:-ms-input-placeholder,
+.search-form textarea:-ms-input-placeholder {
+    color: #FFFFFF !important;
+}
+.search-form input::-webkit-input-placeholder{
+    color: #FFFFFF !important;
+}
+/*修改搜索部分的placeholder的颜色结束*/
+
+/*修改路径导航的margin-bottom*/
+.page-bar {
+	margin-bottom: 0;
+}
+
+/*正文部分开始*/
+.page-container .page-content {
+	padding-top: 60px;
+	background: rgb(239, 239, 239);
+}
+.portlet > .user-pic {
+	height: 160px;
+	border-radius: 50%;
+	padding: 20px;
+}
+
+/*人员信息列表中的样式开始*/
+#deptsinfo table tr td span {
+	cursor: pointer;
+}
+/*人员信息列表中的样式结束*/
+
+/*设置时间线的item为圆角开始*/
+.timeline .timeline-badge-userpic {
+	width: 80px;
+	height: 80px;
+	line-height: 72px;
+	background: #FFFFFF;
+	text-align: center;
+}
+/*设置时间线的item为圆角开始*/
+
+/*下拉菜单的样式设置开始*/
+.page-sidebar {
+	text-align: left;
+	float: none;
+	width: 100%;
+}
+.page-sidebar-menu li a {
+	color: #FFFFFF;
+	line-height: 40px;
+	margin-top: 10px;
+}
+.page-sidebar .page-sidebar-menu > li > a {
+	padding: 0 15px;
+}
+.page-sidebar .page-sidebar-menu > li > a .operationcontainer {
+	position: absolute;
+	right: 30px;
+}
+.page-sidebar .page-sidebar-menu > li > a .operationcontainer .operation i {
+	width: 20px;
+	height: 20px;
+	font-size: 12px;
+	line-height: 20px;
+	margin: 10px 5px;
+	border-radius: 4px;
+}
+.page-sidebar .page-sidebar-menu > li > a .operationcontainer #edit i {
+	background-color: #26A69A;	
+}
+.page-sidebar .page-sidebar-menu > li > a .operationcontainer #move i {
+	background-color: #89C4F4;
+}
+.page-sidebar .page-sidebar-menu > li > a .operationcontainer #delete i {
+	background-color: #F3565D;
+}
+.page-sidebar .page-sidebar-menu.page-sidebar-menu-light > li .sub-menu li > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu.page-sidebar-menu-light > li .sub-menu li > a {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.page-sidebar .page-sidebar-menu > li > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a,.page-sidebar .page-sidebar-menu .sub-menu li > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu li > a {
+	padding-right: 10px;
+}
+.page-sidebar .page-sidebar-menu.page-sidebar-menu-light a:hover {
+	background: #144a69;
+}
+.page-sidebar .page-sidebar-menu.page-sidebar-menu-light a:visited {
+	background: #144a69;
+}
+/*下拉菜单的样式设置结束*/
+
+/*美化正文部分的一些显示问题开始*/
+.portlet.light > .portlet-title {
+	min-height: 0;
+}
+.portlet {
+	border-radius: 5px;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
+}
+.note {
+	border-radius: 5px;
+	padding: 15px 0;
+}
+.note.note-success {
+	background: #123F58;
+	color: #FFFFFF;
+}
+.note.note-success.userinfo {
+	background: #f5f6fa;
+	color: #333333;
+}
+/*美化正文部分的一些显示问题结束*/
+
+/*分页信息居中显示*/
+#deptsinfo .paging {
+	text-align: center;
+}
+
+/*工作统计的timeline的样式开始*/
+
+/*工作统计的timeline的动画样式开始*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  animation-delay: .5s;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+}
+/*工作统计的timeline的动画样式结束*/
+
+#timeline {
+	width: 90%;
+	overflow: hidden;
+	margin: 20px auto;
+	position: relative;
+	background: url('../img/dot.gif') left 45px repeat-x;
+}
+
+#dates {
+	height: 60px;
+	overflow: hidden;
+}
+
+#dates li {
+	list-style: none;
+	float: left;
+	padding: 0 10px;
+	width: 200px;
+	height: 50px;
+	font-size: 24px;
+	text-align: center;
+	background: url('../img/biggerdot.png') center bottom no-repeat;
+}
+
+#dates a {
+	line-height: 38px;
+	padding-bottom: 10px;
+}
+
+#dates .selected {
+	color: #000000;
+	font-size: 38px;
+	text-decoration: none;
+	transition: .3s;
+}
+
+#issues {
+	width: 800px;
+	overflow: hidden;
+}
+
+#issues li {
+	width: 800px;
+	list-style: none;
+	float: left;
+	text-align: center;
+}
+
+#issues li.selected img {
+	-webkit-transform: scale(1.1, 1.1);
+	-moz-transform: scale(1.1, 1.1);
+	-o-transform: scale(1.1, 1.1);
+	-ms-transform: scale(1.1, 1.1);
+	transform: scale(1.1, 1.1);
+}
+
+#issues li img {
+	float: left;
+	margin: 10px 30px 10px 50px;
+	background: transparent;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)";
+	/* IE 8 */
+	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF);
+	/* IE 6 & 7 */
+	zoom: 1;
+	-webkit-transition: all 2s ease-in-out;
+	-moz-transition: all 2s ease-in-out;
+	-o-transition: all 2s ease-in-out;
+	-ms-transition: all 2s ease-in-out;
+	transition: all 2s ease-in-out;
+	-webkit-transform: scale(0.7, 0.7);
+	-moz-transform: scale(0.7, 0.7);
+	-o-transform: scale(0.7, 0.7);
+	-ms-transform: scale(0.7, 0.7);
+	transform: scale(0.7, 0.7);
+}
+
+#issues li h1 {
+	font-size: 48px;
+	margin: 20px 0;
+}
+
+#issues li p {
+	font-size: 14px;
+	margin-right: 70px;
+	font-weight: normal;
+	line-height: 22px;
+}
+/*工作统计的timeline的样式开始*/
+
+/*底部copyright部分开始*/
+.page-footer {
+	border-top: 1px solid #444d58;
+	background: #123F58 !important;
+	text-align: center;
+	height: 32px;
+}
+.page-footer .container, .page-footer .container a {
+	color: #FFFFFF;
+}
+/*底部copyright部分结束*/
+
+/*登录界面视频背景开始*/
+.videocontainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -9999;
+	overflow: hidden;
+}
+.videocontainer video {
+	width: 100%;
+}
+.mask {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -999;
+	background: url('../img/abcd.jpg') no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+/*登录界面视频背景结束*/
+
+/*公告列表开始*/
+.noticecontainer .notice {
+	width: 100%;
+	height: 110px;
+	margin: 20px 0;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #E6E8EB;
+}
+.noticecontainer .notice .imagecontainer {
+	width: 166px;
+	height: 100px;
+	float: left;
+	background: url('../img/abcd.jpg') no-repeat;
+	border-radius: 4px;
+	background-size: 100% 100%;
+}
+.noticecontainer li {
+	list-style: none;
+}
+.noticecontainer .notice .noticedesc {
+	padding-left: 30px;
+	float: left;
+	height: 100px;
+	position: relative;
+}
+.noticecontainer .notice .noticedesc h3 {
+	margin-top: 0;
+}
+.noticecontainer .notice .noticeinfo {
+	position: absolute;
+	bottom: 0;
+}
+/*列表结束*/
+/*公告编辑器*/
+.editorgg {
+	background:#4db3a4 !important;
+	float:right;
+}
+.editorgg:hover {
+	background:#4db3a4 !important;
+}
+.editor-content {
+	width:1032px;
+	height:560px;
+	right:36%;
+	border-radius:2px !important;
+}
+#editor {
+	overflow:auto;
+	height:330px;
+	width:1000px;
+	border:1px solid #ccc;
+	margin-top:10px;
+	border-radius:5px;
+	outline:none;
+} 
+
+
+
+/*请假记录下按照年份统计的tr鼠标显示为a的样式开始*/
+#collapse_1 #years tbody tr {
+    cursor: pointer;
+}
+/*请假记录下按照年份统计的tr鼠标显示为a的样式结束*/
+
+/*新增请假的样式美化开始*/
+#askforleave select.leaveoption {
+    border-radius: 4px;
+}
+#askforleave .operate-header {
+    height: 30px;
+    border: 1px solid #E5E5E5;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 0;
+}
+#askforleave #editor {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+#askforleave .operate-header a.operte {
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    padding: 0 10px;
+}
+#askforleave .operate-header a.operte:hover {
+    background: #EFEFEF;
+}
+.btn-info {
+    background: #EFEFEF;
+    border-color: #EFEFEF;
+}
+#askforleave #editor {
+    border: 1px solid #E5E5E5;
+    min-height: 240px;
+}
+#askforleave #editor:focus {
+    border: 1px solid #E5E5E5;
+}
+/*新增请假的样式美化结束*/
+/*编辑公告美化开始*/
+.btn-toolbar {
+	width:1010px;
+}
+#file-titlebox {
+	float:left;
+	width:300px;
+	height:50px;
+	background:#4db3a4;
+	color:#ffffff;
+	border-radius:2px;
+	display:none;
+}
+.fj-img {
+	float:left;
+	line-height:50px;
+}
+.fj-img i {
+	margin-left:15px;
+	font-size:20px;
+}
+#file-title {
+ float:left;
+ line-height:50px;
+ margin-left:5px;
+}
+.close-file {
+	display:inline-block;
+	margin-right:10px;
+}
+.close-file i {
+ color:#ffffff;
+}
+/*编辑公告结束*/

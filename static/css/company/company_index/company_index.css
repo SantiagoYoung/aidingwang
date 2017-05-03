@@ -1,0 +1,70 @@
+#right_info{
+   display:inline-block;
+   position:relative;
+   left:50px;
+   top:10px;
+}
+@-moz-document url-prefix() {
+	#right_info {
+		top:0px;
+	}
+}
+#protrait{
+	padding:8px;
+	border:1px dashed gainsboro;
+	width:178px;
+	text-align: center;
+}
+#detail{
+	position:relative;
+left: 230px;
+    top: -197px;
+}
+#detail p{
+	margin-bottom:30px;
+}
+#detail span,#detail p{
+	font-size:14px;
+	color:#666666;
+}
+#welcome #company_name{
+	color: #ff5250;
+}
+#advice #report{
+	color: #ff5250;
+}
+.space{
+	width:50px;
+	display:inline-block;
+}
+#qq-mail .space{
+	width:99px;
+}
+#good_info{
+	position:relative;
+top: -190px;
+    left: 233px;
+}
+#good_info div{
+	margin-bottom:30px;
+}
+#good_info .bar{
+	display:inline-block;
+	height: 8px;
+	background-color: #F2F2F2;
+}
+#good_info div,#good_info span{
+	color:#666;
+}
+#good_info #fail_count{
+	color:#ff5250;
+}
+#release_count .bar{
+	width:220px;
+}
+#sale_count .bar{
+	width:100px;
+}
+#expire .bar{
+	width:80px;
+}

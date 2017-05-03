@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}
+    商品小类首页跳转
+{% endblock %}
+
+{% block main %}
+
+
+
+    <div class="shops-show-region">  <!-- 内容-->
+        <div class="select-box">
+            <ul>
+                <li><a href="javascript:;">{{ big_name }}</a></li>
+                <li><a>全部</a></li>
+                {% for i in small_name %}
+                    <li><a>{{ i.name }}</a></li>
+                    </ul>
+                {% endfor %}
+        </div>
+
+
+        <div class="small-class-showbox">
+            <div class="small-classname-box">
+                <h2 class="small-class-name">{{ s_name }}</h2>  <!--小类名-->
+            </div>
+            <div class="small-class-shopsimg">
+
+                {% for s in data %}
+                    <div class="shops-info-box">
+                        <a href="/catalog/goods_detail/{{ s.id }}"><img src="/media/{{ s.picture }}"></a>
+                        <div class="shops-pri-name">
+                            <div class="price-box">
+                                <span class="price-symbol">¥</span>
+                                <strongr class="shops-price">{{ s.price }}</strongr>
+                            </div>
+                            <div class="name-box">{{ s.name }}</div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    {% include 'footer.html' %}
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/nav.js"></script>
+    <script src="/static/js/search-choice.js"></script>
+    <script>
+        /*轮播器*/
+        $('#myCarousel').carousel({
+            interval: 3000
+        });
+
+        //轮播图片
+        $(document).ready(function () {
+            $(".carousel-inner").find(".item").eq(1).removeClass("active");
+        });
+
+        //上传图片展示
+        $(document).ready(function () {
+            $(".home-right-imgs").find("#gzdzzs-img").eq(2).attr("id", "gzdzzs-img-over");
+        });
+    </script>
+
+
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+    我的店铺
+{% endblock %}
+
+{% block main %}
+    <div style="width: 1000px;margin: 0 auto;">
+    <p style="margin: 5px 0px;font-weight: 200;font-size: 11px;color: #999;">爱定网是全球第一家专业的服装定制公司平台，汇集了上万家诚信、正规的服装定制公司，免费供您选择！让您足不出户，尽可享受方便快捷的定制服务。</p>
+     </div>
+        <div class="user-infocont">
+    {% include 'left_side.html' %}
+    <div id="right-form">
+        <form>
+            <div class="form-2">
+                <label>店铺名称：</label><input type="text" name="text" value="星星定制小店"/>
+            </div>
+            <div class="form-7">
+                <label>发货地址：</label>
+                <select name="sf" id="sf">
+                    <option value="">省份</option>
+                    <option value="">成都</option>
+                </select>
+                <select name="city" id="city">
+                    <option value="">城市</option>
+                    <option value="">成都</option>
+                </select>
+                <select name="xian" id="xian">
+                    <option value="">县(区)</option>
+                    <option value="">成都</option>
+                </select>
+                <input type="text" name="xxdz" width="500" placeholder="详细地址"/>
+            </div>
+            <div class="form-8">
+                <label>邮政编码：</label><input type="text" name="text" value=""/>
+            </div>
+            <div class="form-9">
+                <label>店铺介绍：</label>
+                <textarea id="store-intro"></textarea>
+            </div>
+            <div class="form-10">
+                <button type="button" id="editor-userdata">编辑</button>
+                <input type="submit" name="submit" value="提交"/>
+            </div>
+        </form>
+    </div>
+</div>
+    {% include 'footer.html' %}
+
+    <script src="/static/js/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#editor-userdata").click(function () {
+                $(this).attr("id", "save-mydata");
+                $(this).text("保存");
+            });
+        });
+    </script>
+
+{% endblock %}

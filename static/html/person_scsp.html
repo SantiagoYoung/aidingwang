@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}
+    上传商品
+{% endblock %}
+
+{% block main %}
+    <div id="upload-tj">
+  <div class="upload-tj-box">
+      上传条件
+  </div>
+        <div class="upload-tj-left">
+      <form id="upload-commodity" action="/catalog/send_goods/" method="post" enctype="multipart/form-data">
+
+          {% csrf_token %}
+          {{ msg }}
+
+          <ul>
+              <li>格式要求：1、必须正确选择分类。</li>
+              <li>图片要求：1、图片拍摄必须干净整洁、美观；</li>
+              <li class="tpyq-2"> 2、图片上不可以单独添加任何文字：a、图片拍摄背景中有文字，且不影响美观可以。</li>
+              <li>注：1、上传的所有商品都需要审核通过才会显示；2、未按照要求上传的商品一律不会通过。</li>
+              <li class="tpyq-ljdz">
+                  <label>链接地址</label>
+                  <input type="text" name="goods_url" id="goods_url" style="margin-left: 12px;">
+                  <br>
+                  <span style="color: #FF3300;margin-left: 75px;">链接地址前必须包含http或https，例如http://www.aidingwang.com</span>
+              </li>
+              <li class="tpyq-bt"><label>标题</label><input type="text" name="goods_name"/><span>标题在15字以内</span></li>
+              <li>
+                  <label>原价</label><input type="text" id="old-price" name="original_price">
+              </li>
+              <li>
+                  <label>图片</label>
+                  {{ form.picture }}
+              </li>
+              <li>
+                  <label>现价</label><input type="text" id="price" name="current_price">
+              </li>
+              {#          <li>#}
+              {#          	<label>卖家</label><input type="text" id="seller" name="store_address">#}
+              {#          </li>#}
+              <li>
+                  <label>提供</label>
+                  <input type="checkbox" id="provide-design" name="is_provide_design" value="True">提供设计
+                  <input type="checkbox" id="provide-make" name="is_provide_make" value="True">提供制作
+              </li>
+              <li>
+                  <label>需求</label>
+                  <input type="checkbox" id="customade-size" name="is_customize_size" value="True">定制尺码
+                  <input type="checkbox" id="customade-pattern" name="is_customize_patten" value="True">定制图案
+                  <input type="checkbox" id="customade-collection" name="is_customize_style" value="True">定制款式
+              </li>
+              <li class="colors-li">
+                  <label>颜色</label>
+                  <div class="bs-example" style="width: 300px;margin-left: 45px;">
+  <input type="text" value="" data-role="tagsinput" id="color-add" name="color">
+                      </div>
+                  <div class="color_prompt">
+                     输入颜色后请按键盘上的回车，继续输入下一个颜色。
+                  </div>
+              </li>
+              <li>
+              <li class="tpyq-fl"><label>分类</label>
+                  <select id="province">
+                  </select>
+                  <select id="show-sele" name="belong_to_small">
+                  </select>
+              </li>
+              <li>
+                 <label style="float: left;">商品介绍：</label>
+                  {{ form.goods_introduce}}
+              </li>
+              <li>
+                 <label style="float: left;">服务说明：</label>
+                  {{ form.server_introduce }}
+              </li>
+          </ul>
+          <div>
+              <label style="color: #6c6c6c;">整体款式</label>
+              <input type="file" multiple="multiple" accept="image/*" name="goods_picture" id="file_upload" >
+              <span class="img_prompt">如需上传多张图片，选择图片请按住键盘Ctrl键或按住鼠标左键滑动多选。</span>
+          </div>
+           <div>
+              <label style="color: #6c6c6c;">细节做工</label>
+              <input type="file" multiple="multiple" accept="image/*" name="goods_detailpicture" id="file_uploads" >
+            
+          </div>
+          <button type="submit" id="submit-commodity">提交</button>
+      </form>
+    </div>
+    <div class="upload-tj-right">
+        <a href="/Store/upload_demo/">
+            <button type="button">点击查看商品上传范例</button>
+        </a>
+    </div>
+        </div>
+    <div style="width: 100%;height: 70px;clear: both;"></div>
+    {% include 'footer.html' %}
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-tagsinput.css">
+    <script type="text/javascript" src="/static/js/bootstrap-tagsinput.js"></script>
+    <script>
+        $(function () {
+            $(".bootstrap-tagsinput").keyup(function () {
+                 $(".color_prompt").show();
+            });
+            $("#goods_url").attr("type","url");
+        });
+    </script>
+{% endblock %}

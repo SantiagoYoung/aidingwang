@@ -1,0 +1,23 @@
+# Created by .ignore support plugin (hsz.mobi)
+# Created by .ignore support plugin (hsz.mobi)
+*.py[cod]
+*.pyc
+
+# C extensions
+*.so
+
+.idea/
+
+# database
+db.sqlite3
+
+# configurations
+socket.ini
+# uwsgi_params
+carsharing_nginx.conf
+uwsgi.xml
+# media file
+media/
+
+# uwsgi logging file
+uwsgi.log# Created by .ignore support plugin (hsz.mobi)

@@ -1,0 +1,21 @@
+#right{
+	display: inline-block;
+	position: relative;
+	top:-250px;
+	left:100px;
+}
+#right textarea{
+	height:230px;
+	width:500px;
+	border:1px solid gainsboro;
+}
+#right #btn_submit{
+	position: relative;
+	top:-130px;
+	left:550px;
+	width:100px;
+	height: 30px;
+	background-color: #fff;
+	border-radius:3px;
+	border:1px solid gainsboro;
+}

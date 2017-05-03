@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}
+    注册
+{% endblock %}
+
+{% block main %}
+    <div class="zc-box">
+        <form action="/Accounts/register/" method="post">
+            {% csrf_token %}
+            <div class="zc-error-text"> {{ msg }}</div>
+            <div class="useremail-box">
+                <label>邮箱</label>
+                <input type="email" class="user-email" name="email">
+
+            </div>
+            <div class="useremail-box">
+                <label>QQ</label>
+                <input type="text"  name="QQ" maxlength="11">
+
+            </div>
+             <div class="useremail-box">
+                 <label>昵称</label>
+                <input type="text" class="user-email" name="nickname">
+
+            </div>
+            <div class="useremail-box">
+                 <label style="float: left;margin-left: -27px;margin-top: 25px;">电话号码</label>
+                <input type="text" class="user-phonenumber" name="phone" maxlength="11">
+
+            </div>
+
+
+            <div id="loginpass-box">
+                <label>登录密码</label>
+                <input type="password" id="login-pass" name="password" maxlength="15" minlength="6">
+            </div>
+            <div class="qrmm-box">
+                <label>确认密码</label><input type="password" id="qrmm" name="confirm_password" maxlength="15" minlength="6">
+            </div>
+            <div class="zctext-box">
+                <button type="submit" id="submit-zc">注册</button>
+            </div>
+        </form>
+    </div>
+  <script>
+  $(".useremail-box input").eq(1).addClass("qqint");
+  </script>
+
+
+
+{% endblock %}

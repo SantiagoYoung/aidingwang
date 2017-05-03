@@ -1,0 +1,40 @@
+#content{
+	margin-bottom:-150px;
+}
+#right_info-yjfk{
+    /*margin: 0 auto;*/
+	/*width: 555px;*/
+	margin-left: 300px;
+}
+#right_info-yjfk textarea{
+	position: relative;
+	height:200px;
+	width:600px;
+	top:10px;
+}
+#right_info-yjfk input{
+	height:25px;
+	width:200px;
+}
+#right_info-yjfk label[for=feedback]{
+	position: relative;
+    top:-180px;
+}
+#right_info-yjfk #btn_submit{
+	width:80px;
+	height:30px;
+	font-size:12px;
+	border:1px solid gainsboro;
+	border-radius:5px;
+	background-color: #fff;
+	position: relative;
+	left:189px;
+	top:10px;
+}
+#right_info-yjfk #verify{
+	position: relative;
+	font-size:11px;
+	color: #FF5250;
+	left:200px;
+	top:10px;
+}

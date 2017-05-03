@@ -1,0 +1,36 @@
+* {
+ margin: 0;
+ padding: 0;
+}
+.pagination-pages {
+  text-align: center;
+  margin: 30px 0px;
+}
+.pagination-pages a:hover {
+  color: #000000 !important;
+  background: #EEEEEE;
+}
+.page-cur {
+  padding: 0 8px;
+  border: 1px solid #488fcd;
+  background-color: #488fcd;
+  color: #fff;
+  margin-right: 3px;
+  height: 23px;
+  line-height: 23px;
+  border-radius: 2px;
+}
+.page {
+  margin-right: 3px;
+  padding: 1px 9px;
+  color: #AA99BB;
+  height: 23px;
+  line-height: 23px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  text-decoration: none;
+}
+.page-next {
+  color: #AA99BB;
+}

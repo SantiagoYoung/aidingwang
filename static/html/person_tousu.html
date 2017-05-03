@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+    投诉建议
+{% endblock %}
+
+{% block main %}
+    <div style="width: 1000px;margin: 0 auto;">
+    <p style="margin: 5px 0px;font-weight: 200;font-size: 11px;color: #999;">爱定网是全球第一家专业的服装定制公司平台，汇集了上万家诚信、正规的服装定制公司，免费供您选择！让您足不出户，尽可享受方便快捷的定制服务。</p>
+     </div>
+        <div class="user-infocont">
+    {% include 'left_side.html' %}
+    <div id="right-form">
+        <div class="modal-body">
+                  <textarea id="cpmpla-content">
+
+                  </textarea>
+              </div>
+              <div style="float: right;padding-right: 20px;">
+                  <button type="button" class="btn btn-primary" id="submit-spts">
+                      提交
+                  </button>
+              </div>
+    </div>
+</div>
+
+
+
+
+    {% include 'footer.html' %}
+
+    <script>
+    $("#submit-spts").click(function () {
+                  var compla = $("#cpmpla-content").val();
+              console.log(compla);
+                      $.ajax({
+                      type: 'post',
+                      url: 'http://0.0.0.0:8008/Accounts/tousu/',
+                      data: {
+                          body: compla
+                      },
+                      success:function (data) {
+                        if (data.status = 200) {
+                            alert("投诉成功！");
+                            window.location.reload();
+                        }
+                      },
+                      error:function () {
+                          alert("投诉失败！");
+                      }
+                  });
+              });
+    </script>
+
+{% endblock %}

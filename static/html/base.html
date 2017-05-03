@@ -1,0 +1,243 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta name="renderer" content="webkit">
+  <title>{% block title %} {% if page_title %}{{ page_title }} - {% endif %} {{ site_name }} {% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/basic.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/page.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/footer.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/prettify.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/components-md.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/newstyle.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/flat-ui.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/safe_center.css" />
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/nav.js"></script>
+  <script src="/static/js/search-choice.js"></script>
+  <script src="/static/js/clipboard.min.js"></script>
+  <script src="/static/js/adw_apply.js"></script>
+  </script>
+  <style type="text/css">
+    #editor-trigger {
+      height: 400px;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header">
+    <div id="nav">
+      <ul id="left">
+        <li style="font-family: 'Adobe Caslon Pro';">
+          <a href="#" id="welcome">嗨，欢迎来到爱定网! {{ test }} </a>
+        </li>
+
+        {% if user.is_authenticated %}
+        <li id="user-id"><a href="javascript:;">{{ user.username }}</a>
+        </li>
+        <li>
+          <a href="/Accounts/logout/"><img src="/static/img/quit.png" style="margin: 0px 3px 3px 0px;">退出登录</a>
+        </li>
+        {% else %}
+        <li>
+
+          <a href="/Accounts/login/" id="login">亲，请登录</a>
+        </li>
+        <li>
+          <a href="/Accounts/register/" id="reg">免费注册</a>
+        </li>
+        {% endif %}
+      </ul>
+      <ul id="right">
+        {% if user.is_authenticated %}
+        <li>
+          <a value="1" href="/Store/register_information/">我的爱定网</a>
+        </li>
+        {% else %}
+        <li>
+          <a value="0" href="javascript:;" id="no-login">我的爱定网</a>
+        </li>
+        {% endif %} {% if user.is_authenticated %}
+        <li id="user-collection">
+          <div>
+            <img src="/static/img/star.png" id="star">
+            <a href="/catalog/user_collections_list/">收藏</a>
+          </div>
+          <div id="guide-usercollection" style="border-right: 0px;">#} {# {% if user.is_authenticated %}#} {# <a href="/catalog/user_collections_list/" style="margin-left: 6px;">收藏的商品</a>
+            <br>#} {# <a href="/catalog/store_collection_list/">收藏的商品店铺</a>#} {# {% else %}#} {# <a href="javascript:;" style="margin-left: 6px;" id="no_login_goods">收藏的商品商品</a>
+            <br>#} {# <a href="javascript:;" id="no_login_goods2">收藏的商品店铺</a>#} {# {% endif %}#} {# </div>#}
+        </li>
+        {% else %}
+        <li id="user-collection">
+          <div>
+            <img src="/static/img/star.png" id="star">
+            <a href="javascript:;" id="on_login_sc">收藏</a>
+          </div>
+        </li>
+        {% endif %}
+        <li>
+          <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=934232058&amp;site=qq&amp;menu=yes" target="_blank">联系客服</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="head-clearfix">
+    <div class="wrp">
+      <div id="logo">
+        <a href="/">
+          <img src="/static/img/idw_logo.png" alt="" width="161px" height="67px" />
+        </a>
+      </div>
+      <div id="search">
+        <div>
+          <ul style="position: relative;right: 5px;">
+            <li id="commodity-search" style="width: 40px;" class="commodity-search-hover">商品</li>
+            <li id="shops-search" class="">店铺</li>
+          </ul>
+        </div>
+        {% block search %}
+        <div style="margin-top: 31px;">
+          <form action="/catalog/search/" method="get">
+            <div id="search_input">
+              <div class="serin_box">
+                <input type="text" name="goods_search" id="search_box" value="" placeholder="请输入需要搜索的内容！">
+              </div>
+              <div style="float: left;">
+                <button type="submit" id="btn_search">搜 索</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        {% endblock %}
+
+      </div>
+    </div>
+  </div>
+  <div id="content">
+    <div id="nav">
+      <ul class="nav-item">
+        <li class="first-nav-item cur" id="gl_1">
+          <a href="/" id="homepage">
+            <span class="name-cn">在线定制</span>
+          </a>
+        </li>
+        {% if user.is_anonymous %}
+        <li class="first-nav-item ">
+          <a href="/" id="no_login_store">
+            <span class="name-cn">店铺入驻</span>
+          </a>
+        </li>
+        {% else %} {% if not store %}
+        <li class="first-nav-item ">
+          <a href="/Store/store_apply/" id="join">
+            <span class="name-cn">店铺入驻</span></a>
+        </li>
+        {% else %}
+        <li class="first-nav-item ">
+          <a href="javascript:;" id="joined"><span class="name-cn">店铺入驻<span></a>
+        </li>
+        {% endif %} {% endif %}
+
+        <li class="first-nav-item ">
+          <a href="/Accounts/get_meassage/" id="dzww_head"><span class="name-cn">定制问问</a></span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div id="nav2">
+    <ul class="nav2-item">
+      {% for big in big_small %}
+
+      <li id="jpdz"><a href="/catalog/ShowGoodsByBigType/{{ big.id }}/">{{ big.name }}</a></li>
+
+
+      {% endfor %}
+    </ul>
+  </div>
+
+
+
+
+  {% block main %} {% endblock %} {#
+
+
+
+
+
+
+
+  <script>
+    #} {#
+      $(document).ready(function() {#} {#
+        $("#user-collection").mouseover(function() {#} {#
+          $("#guide-usercollection").show();#
+        } {#});#
+      } {#
+        $("#user-collection").mouseout(function() {#} {#
+          $("#guide-usercollection").hide();#
+        } {#});#
+      } {##} {#
+        $("#no-login").click(function() {#} {#
+          if ($(this).val() == 0) {#} {#
+            alert("只要登录才能进入此页面哦！");#
+          } {#
+            window.location.reload();#
+          } {#}#
+        } {#});#
+      } {##} {#
+        $("#joined").click(function() {#} {#
+          alert("您已入驻过店铺，无法进入！");#
+        } {#});#
+      } {##} {#
+        $("#no_login_store").click(function() {#} {#
+          alert("登录后才能入驻店铺哦！");#
+        } {#});#
+      } {##} {#
+        $("#no_login_goods").click(function() {#} {#
+          alert("登录后才能查看收藏哦！");#
+        } {#});#
+      } {##} {#
+        $("#no_login_goods2").click(function() {#} {#
+          alert("登录后才能查看收藏哦！");#
+        } {#});#
+      } {##} {#
+        $("#on_login_sc").click(function() {#} {#
+          alert("登录后才能进入收藏哦！");#
+        } {#});#
+      } {#});#
+    } {##} {##} {##} {#
+      $("#shops-search").click(function() {#} {#
+        $("#search_box").attr("name", "store_name");#
+      } {#});#
+    } {#
+      $("#commodity-search").click(function() {#} {#
+        $("#search_box").attr("name", "goods_search");#
+      } {#});#
+    } {##} {##} {#
+      $("form").keypress(function(e) {#} {#
+        if (e.keyCode == 13) {#} {#
+          e.preventDefault();#
+        } {#}#
+      } {#});#
+    } {##} {##} {#
+#}  </script>
+</body>
+
+</html>

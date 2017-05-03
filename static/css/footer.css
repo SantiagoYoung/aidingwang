@@ -1,0 +1,156 @@
+#footer {
+	height:350px;
+	background:#F4F4F4;
+	display:inline-table;
+}
+#footer-list {
+    width: 1090px;
+    height: 220px;
+    margin: 0 auto;
+	margin-top: 30px;
+	padding-left: 135px;
+}
+#footer-list div {
+	float: left;
+    width: 183px;
+    height: 185px;
+    text-align: center;
+}
+.friends-links {
+	width: 1133px;
+    margin: 0 auto;
+}
+.friends-linls-content {
+    width: 100%;
+    height: 30px;
+    border-top: 1px solid #ECECE4;
+    border-bottom: 1px solid #ECECE4;
+    line-height: 30px;
+}
+.friends-linls-content label {
+	float: left;
+    font-size: 15px;
+}
+.friends-linls-content ul {
+	position: relative;
+    bottom: 19px;
+}
+.friends-linls-content li {
+	float: left;
+}
+.friends-links li {
+	margin-right: 15px;
+}
+#gywm-list {
+	width:753px;
+	margin:0 auto;
+}
+.gywm-list-box {
+	width: 890px;
+  margin-top: 30px;
+  height: 190px;
+}
+.gywm-list1,.gywm-list2,.gywm-list3,.gywm-list4,.gywm-list5 {
+	float:left;
+}
+.gywm-list2,.gywm-list3,.gywm-list4,.gywm-list5 {
+	margin-left:70px;
+}
+.gywm-list1,.gywm-list2,.gywm-list3,.gywm-list4,.gywm-list5 li {
+	text-align:center;
+}
+.tel-img {
+	width:40px;
+	height:40px;
+	position: relative;
+    left: 8px;
+    bottom: 0px;
+}
+.gywm-list1 span {
+	font-size:20px;
+}
+.tel-dh span {
+	font-size: 16px !important;
+}
+.gz-date {
+	width:240px;
+	margin-left:-31px;
+}
+.gz-date span {
+	font-size:16px !important;
+}
+.list-1 {
+  margin-left:194px;
+	float: right;
+	margin-top: 2px;
+	color: #999999;
+	height: 93px;
+	width: 170px;
+	text-align: center;
+}
+.tel-content li {
+	padding-left:30px;
+}
+#footer span {
+	font-size:20px;
+	font-weight: 700;
+	font-family: "宋体";
+}
+#footer li {
+	margin-top:20px;
+	color:#666666;
+}
+.footer-top {
+ display:flex;
+ margin-left:95px;
+ position:absolute;
+}
+.footer-center {
+ width:900px;
+ margin:0 auto;
+		border: 1px solid #cccccc;
+	width: 900px;
+	padding: 5px 0px;
+	border-right: 0px;
+	border-left: 0px;
+	position: relative;
+	height: 20px;
+	color:#666666;
+}
+.footer-bqsm {
+	width:890px;
+}
+.yqlj {
+ width:900px;
+ height:30px;
+ line-height:30px;
+ border-top:1px solid #cccccc;
+ border-bottom:1px solid #cccccc;
+ margin-top:25px;
+}
+.copy-not {
+	text-align:center;
+	margin-top:27px;
+}
+.copy-not span {
+		font-size:15px !important;
+		color:#666666;
+}
+.zxzx .sp1 {
+	font-size:15px !important;
+}
+.zxzx img {
+	position:relative;
+	left:8px;
+	top:6px;
+}
+.zxzx a {
+    color:#666666;
+}
+.adw_tel {
+    margin-left: 24px;
+	font-family: "宋体 Bold", 宋体;
+    font-weight: 700;
+    font-size: 28px !important;
+	color: #333;
+}

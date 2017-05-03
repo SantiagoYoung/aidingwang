@@ -1,0 +1,121 @@
+#content{
+	height:400px;
+}
+#upload_con {
+	height: 25px;
+	width: 870px;
+	background-color: #f2f2f2;
+	margin: 0 auto;
+	line-height: 25px;
+	text-align: center;
+	font-size: 12px;
+}
+
+#list {
+	position: relative;
+	left: 234px;
+	top: 40px;
+	height: 308px;
+}
+
+#prerequisite #format,
+#prerequisite #pic #one,
+#prerequisite #pic #two,
+#prerequisite #note{
+	font-size: 11px;
+	margin: 4px 0px;
+	color: #afafaf;
+}
+
+#btn_upload {
+	position: absolute;
+	top: 50px;
+	left: 550px;
+	width: 260px;
+    height:25px;
+	font-size: 12px;
+    background-color: #fff;
+    border:1px solid gainsboro;
+    border-radius:5px;
+}
+
+#info {
+	position: relative;
+	top: 20px;
+}
+
+label {
+	display: inline-block;
+	width: 60px;
+	text-align: right;
+	font-size:12px;
+	margin-top:13px;
+	color: #afafaf;
+}
+#info input{
+	position:relative;
+	top:-91px;
+	left:70px;
+	margin-top:12px;
+}
+#info select{
+	position:relative;
+	top:-82px;
+	left:70px;
+}
+#footer{
+	height:286px;
+	background-color: #f4f4f4;
+	border:1px solid gainsboro;
+}
+#outer{
+	float:left;
+	position:relative;
+	left:50%;
+	margin-left:-20px;
+}
+dt,dd,#wechat_num{
+	margin-top:22px;
+	color:#666666;
+	text-align: center;
+	font-size:16px;
+}
+dt,#wechat_num{
+	font-size:20px;
+	font-weight:bolder;
+}
+#hotline,#help,#about_us,#follow_us,#wechat{
+	float:left;
+	right:50%;
+	position:relative;
+	margin-left:103px;
+}
+#tel_icon{
+	position:relative;
+	left:-1580px;
+	top:18px;
+}
+#wechat_pic{
+	position:relative;
+	left:18px;
+	top:10px;
+}
+#friend_link{
+	position:relative;
+	clear:both;
+	border-top:2px solid #ecece4;
+	border-bottom:2px solid #ecece4;
+	width:1150px;
+	left:50%;
+	top:15px;
+	margin-left:-575px;
+	margin-bottom:15px;
+	height:25px;
+	line-height: 25px;
+}
+#copyright{
+	position: relative;
+	text-align: center;
+	top:20px;
+	color:#666666;
+}

@@ -1,0 +1,104 @@
+#right_user_info {
+	position: relative;
+	display: inline-block;
+	margin-left: 120px;
+	top:-40px;
+}
+
+@-moz-document url-prefix() {
+	#right_user_info {
+		top: -92px;
+	}
+}
+
+#right_user_info form {
+	position: relative;
+	top: 35px;
+}
+
+#right_user_info input {
+	margin-top: 16px;
+	border: 1px solid gainsboro;
+}
+
+#right_user_info label {
+	font-size: 12px;
+	color:#666;
+}
+
+label[for=name] {
+	margin-left: 12px;
+}
+
+label[for=mobile_number] {
+	margin-left: 24px;
+}
+
+label[for=QQ_number] {
+	margin-left: 30px;
+}
+
+#right_user_info #form_second #address_title {
+	position: relative;
+	display: inline-block;
+	margin-top: 16px;
+}
+
+#right_user_info #form_second #address {
+	width: 522px;
+	margin-left: 63px;
+}
+
+@-moz-document url-prefix() {
+	#right_user_info #form_second #address_title,
+	#right_user_info #form_second select,
+	#right_user_info #form_second #address,
+	#right_user_info #form_second #postcode,
+	label[for=postcode],
+	#form_third {
+		position: relative;
+		left: 25px;
+	}
+}
+
+#right_user_info #form_third {
+	margin-top: 16px;
+	margin-left: 1px;
+}
+
+#right_user_info #form_third textarea {
+	width: 524px;
+	border: 1px solid lightgray;
+}
+
+#intro_label {
+	position: relative;
+	top: -245px;
+}
+
+#save {
+	margin-left: 273px;
+	margin-bottom: 16px;
+	width: 75px;
+	height: 24px;
+	background-color: white;
+	border: 1px solid lightgray;
+	font-size: 12px;
+	border-radius: 3px;
+	color:#666;
+}
+
+@-moz-document url-prefix() {
+	#intro_label {
+		top: -205px;
+	}
+	#right_user_info #form_second {
+		margin-left: -25px;
+	}
+	#right_user_info #form_third {
+		margin-left: -25px;
+	}
+	#save {
+		margin-left: 250px;
+	}
+}

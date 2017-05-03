@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% block title %}
+    首页
+{% endblock %}
+
+
+
+{% block main %}
+
+    {% for i in datas %}
+        <div id="nav2">
+            <ul>
+                <li id="jpdz"><a href="/catalog/ShowGoodsBySmallType/{{ i.b_id }}/" target="_blank">{{ i.b_name }}</a>
+                </li>
+            </ul>
+        </div>
+    {% endfor %}
+
+    <!-- 轮播开始 -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+{#    data-ride="carousel"#}
+
+        <div class="carousel-inner" style="height: 400px;">
+            {% for i in lunbotu_list %}
+
+                <div class="item active" style="width: 100%;height: 450px;">
+
+                    <img src="/media/{{ i.picture }}/" alt="First slide" id="lunbo-img"/>
+
+                </div>
+            {% endfor %}
+
+            <div class="shuffling-btn" style="width: 100%;height: 450px;position: absolute;">
+{#                <a class="lunbo-left" href="#myCarousel"#}
+{#                   data-slide="prev"><img src="/static/img/home/prev.png"/></a>#}
+{#                <a class="lunbo-right" href="#myCarousel"#}
+{#                   data-slide="next"><img src="/static/img/home/next.png"/></a>#}
+            </div>
+        </div>
+    </div>
+
+    <!-- 服装定制 -->
+    <div class="dress-custom">
+        <div class="dress-custom-header"><span class="home_big_name">服装定制</span><span class="english_name">Garments</span></div>
+        <div class="dress-custom-img">
+            {% for i in index_picture %}
+            <a href="/catalog/goods_detail/{{ i.id }}"><img src="/media/{{ i.picture }}"></a>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    {{ i.picture }}
+    {% for i in data %}
+        <div id="fzdz-box">
+            <div class="fzdz-header-title">
+                <span class="home_big_name" >{{ i.big_type_name }}</span>
+
+                <span class="english_name">{{ i.big_en_name }}</span>
+
+            </div>
+            <div id="big-classify">
+                <div class="big-classify-boxs">
+                    <img src='/media/{{ i.big_picture1 }} '/>
+                    <img src='/media/{{ i.big_picture2 }} '/>
+                </div>
+                <div class="gzdz-img-box2">
+                </div>
+            </div>
+            <div class="fzdz-img-box">
+                {% for k in i.goods %}
+                    <div>
+                    <div id="classify-show-img">
+                        <a href="/catalog/show_goods/{{ k.id }}"><img src='/media/{{ k.p }} '/></a>
+                        <div class="shop-prix-shopnames">
+                            <div class="goods_name">
+                                {{ k.n }}
+                            </div>
+                            <div class="shop-prix">
+                                ￥&nbsp;&nbsp;{{ k.cp }}
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+
+
+    <div id="center-img">
+        <img src="/static/img/home/u200.png"/>
+    </div>
+    </div>
+    <!-- 首页展示定制部分结束 -->
+    <!-- 页面底部开始 -->
+ <div style="width: 100%;height: 30px;"></div>
+    {% include 'footer.html' %}
+
+
+    <script>
+        //轮播器
+        $('#myCarousel').carousel({
+            interval: 3000
+        });
+
+        $(".dress-custom-img img").eq(1).css("margin-left","9px");
+        $(".dress-custom-img img").eq(2).css("margin-left","9px");
+        $(".dress-custom-img img").eq(3).css("margin-left","9px");
+
+        $(window).resizeEnd({}, function () {
+            var $spdl = $('.dress-custom');
+            var $fzdz = $("#fzdz-box");
+            var $ww = $(window).width();
+            if ($ww < 1100) {
+                $spdl.css('margin-left', '200px');
+                $fzdz.css('margin-left', '200px');
+            }
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+    <meta charset="UTF-8">
+    <title>重复上传</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/basic.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/page.css"/>
+{% endblock %}
+
+{% block main %}
+
+    <div id="gcspsp-ts">
+        <div class="ts-1"><img src=""/> <span>请勿重复上传</span></div>
+        <div class="cfscts-btn">
+            <a href="/Store/send_goods/">
+                <button class="return-btn">返回</button>
+            </a>
+            <a href="/static/html/person_home.html">
+                <button class="hdzy-btn">回到主页</button>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

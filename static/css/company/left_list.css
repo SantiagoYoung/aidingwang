@@ -1,0 +1,39 @@
+#left_list {
+	display: inline-block;
+	border: 1px solid gainsboro;
+	width: 118px;
+	height:505px;
+	margin-bottom: 50px;
+}
+
+#left_list ul {
+	position: relative;
+	margin-left: 20px;
+}
+
+#left_list p {
+	margin-left: 16px;
+}
+
+#left_list ul li {
+	width: 80px;
+	text-align: right;
+}
+
+#left_list ul li,
+#left_list p {
+	margin-top: 18px;
+}
+
+#left_list ul li a,
+#left_list p {
+	font-size: 14px;
+}
+
+#left_list ul li a {
+	color: gray;
+}
+
+#left_list #bottom {
+
+}

@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block title %}
+    商品编辑
+{% endblock %}
+
+{% block main %}
+    <div id="upload-tj">
+
+        <div class="upload-tj-left" style=" margin-top: 40px;">
+      <form id="upload-commodity" action="/catalog/goods_edit/{{ goods.id }}" method="post" enctype="multipart/form-data">
+
+          {% csrf_token %}
+          {{ msg }}
+
+          <ul>
+              <li class="tpyq-ljdz"><label>链接地址</label>
+                  {{ form.goods_url }}
+              <li class="tpyq-bt"><label>标题</label>
+              {{ form.goods_name }}
+              <li>
+                  <label>原价</label>
+                  {{ form.original_price }}
+              </li>
+              <li>
+                  <label style="margin-right: 40px;">图片</label>
+                  {{ form.picture }}
+              </li>
+              <li>
+                  <label>现价</label>
+                  {{ form.current_price }}
+              </li>
+              <li>
+                  <label>提供</label>
+                  {{ form.is_provide_design }}提供设计
+                  {{ form.is_provide_make }}提供制作
+              </li>
+              <li>
+                  <label>需求</label>
+                  {{ form.is_customize_size }}定制尺码
+                  {{ form.is_customize_patten}}定制图案
+                  {{ form.is_customize_style }}定制款式
+              </li>
+              <li class="colors-li">
+                  <label>颜色</label>
+                <div class="bs-example" style="width: 300px;margin-left: 45px;">
+                <input type="text" value="" data-role="tagsinput" id="color-add" name="color">
+                    <span class="tag label label-info"  id="color_preview">
+                        {{ goods.color }}<span>
+                        <a href="javascript:;" id="delete_color" >
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </span></span>
+                </div>
+              </li>
+              <li>
+              <li class="tpyq-fl"><label>分类</label>
+                  <select id="province">
+
+                  </select>
+                  <select id="show-sele" name="belong_to_small">
+
+                  </select>
+              </li>
+              <li>
+                <label style="float: left">商品介绍:</label>
+                  {{ form.goods_introduce}}
+              </li>
+              <li>
+                <label style="float: left">服务说明:</label>
+                  {{ form.server_introduce}}
+              </li>
+          </ul>
+<div id="upload_is_img">
+    <label>商品整体款式图片</label>
+   <ul class="delete_img_list">
+     <li>
+         <input type="checkbox" id="click_all">全选
+     </li>
+       <li>
+       <button type="button" id="delete-uploimg" >
+          删除
+       </button>
+      </li>
+   </ul>
+    <div class="upload_is_imgbox">
+        {% for i in show_picture %}
+        <div class="single">
+            <span><input type="checkbox" name="id" value="{{ i.id }}" id="delete_upimg" ></span>
+            <img src="/media/{{ i.picture }}/" alt="First slide" id="lunbo-img"/>
+        </div>
+        {% endfor %}
+       </div>
+    <div>
+        <div style="clear: both;margin-left: 70px;">
+    <input type="file" multiple name="goods_picture">
+         </div>
+    </div>
+   </div>
+<div id="upload_is_img">
+    <label>商品细节做工图片</label>
+   <ul class="delete_img_list">
+     <li>
+         <input type="checkbox" id="click_all">全选
+     </li>
+       <li>
+       <button type="button" id="delete-uploimg" >
+          删除
+       </button>
+      </li>
+   </ul>
+    <div class="upload_is_imgbox">
+        {% for i in picture_detail %}
+        <div class="single">
+            <span><input type="checkbox" name="id" value="{{ i.id }}" id="delete_upimg" ></span>
+            <img src="/media/{{ i.picture_detail }}/" alt="First slide" id="lunbo-img"/>
+        </div>
+        {% endfor %}
+       </div>
+    <div>
+        <div style="clear: both;margin-left: 70px;">
+    <input type="file" multiple name="goods_picture">
+         </div>
+    </div>
+   </div>
+
+          <button type="submit" id="submit-commodity" style="margin-left: 72px;"> 提交</button>
+      </form>
+    </div>
+</div>
+    {% include 'footer.html' %}
+{% endblock %}

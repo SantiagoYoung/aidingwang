@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}
+    企业主页
+{% endblock %}
+
+{% block main %}
+    <div style="width: 1000px;margin: 0 auto;">
+    <p style="margin: 5px 0px;font-weight: 200;font-size: 11px;color: #999;">爱定网是全球第一家专业的服装定制公司平台，汇集了上万家诚信、正规的服装定制公司，免费供您选择！让您足不出户，尽可享受方便快捷的定制服务。</p>
+     </div>
+    <div class="qyym-img">
+        <img src="/static/img/collection_store/u0.jpg">
+    </div>
+    <div class="qyym-name">
+        <div class="qyym-left-img">
+            <img src="/media/{{ lists.headpicture }}" alt="暂无企业">
+        </div>
+        <div class="qyym-center-text">
+            <span class="spn-1">企业名称：{{ lists.companyname }}</span>
+
+            <span>企业标签：{{ big.name }}
+
+
+                {% if lists.industry == 0 %}生产 (包括材料提供){% endif %}
+                {% if lists.industry == 1 %}设计{% endif %}
+                {% if lists.industry == 2 %}私人订制{% endif %}
+                {% if lists.industry == 3 %}工装定制{% endif %}
+
+         </span>
+        </div>
+    </div>
+    <div class="qyjj-content-box">
+
+        <div class="left-content">
+            <div class="qyjj">企业简介</div>
+            <p class="qyjj-content">
+                {{ lists.company_introduce }}
+            </p>
+            <div class="lxwm">联系我们</div>
+            <div class="lxwm-table">
+                <ul>
+                    <li><label>企业名称：{{ lists.companyname }}</label></li>
+                    <li><label style="margin-left: 14px;">联系人：{{ lists.connectioner }}</label></li>
+                    <li><label style="margin-left: 28px;">地址：{{ lists.company_adress }}</label></li>
+                    <li><label style="margin-left: 28px;">电话：{{ lists.connection_number }}</label></li>
+                    <li><label style="margin-left: 5px;">企业QQ：{{ lists.company_QQ }}</label></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right_img">
+            <div class="right-content-1">
+                <div class="zxsp-right">
+                    <div class="zxsp">
+                        最新商品
+                    </div>
+                    {% for i in picture %}
+                        <div class="zxsp-img">
+                            <a href="#"><img src="/media/{{ i.picture }}" style="margin-left: 10px;"></a>
+                        </div>
+                        </div>
+                    {% endfor %}
+            </div>
+
+            <div class="right-content-2">
+                <div class="zxjr-right">
+                    <div class="zxjr">最新加入公司</div>
+                </div>
+                {% if all_lists %}
+                    {% for i in all_lists %}
+                        <div class="zxjr-list">
+
+                            <ul>
+                                <li>•<a href="{{i.link}}"> {{ i.companyname }}</a></li>
+                                <li></li>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <span style=" position: relative;top: 30px;left: 69px;color: #CC3333; font-size: 18px;">暂无公司加入</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

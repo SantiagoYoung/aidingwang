@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block title %}
+   商品搜索
+{% endblock %}
+
+
+
+{%  block search %}
+<div style="margin-top: 31px;">
+<form action="{% url 'search' %}" method="GET" xmlns="http://www.w3.org/1999/html">
+            <div id="search_input">
+                <div class="serin_box">
+                    <input type="text"  id="search_box" name="goods_search" value="{{ goods_search }}">
+                    </div>
+                                <div style="float: left;">
+                                    <button type="submit" id="btn_search">搜 索</button>
+                    </div>
+            </div>
+</form>
+    </div>
+{% endblock %}
+
+{% block main %}
+
+<div class="serach-display-box">
+ <div class="search-display-list">
+{% for list in goods %}
+     <div class="shops-info-box">
+     <a href="/catalog/goods_detail/{{ list.id }}">
+       <img src="{{ list.picture.url }}">
+        </a>
+         <div class="shops-pri-name">
+        <div class="name-box">
+          <a href="/catalog/goods_detail/{{ list.id }}"><span>{{ list.goods_name }}</span></a>
+        </div>
+</div>
+     <div style="width: 235px;height: 25px;margin-top: 3px;">
+            <div class="goods-price" style="float: left;">
+          <span class="price-symbol" style=" font-family: 'Heiti SC Light', 'Heiti SC';">￥{{ list.current_price }}.00</span>
+          </div>
+                         <div class="provide-services">
+                        <ul>
+                            {% if list.is_provide_design == True %}
+                                <li class="designli">
+                                    <span>设</span>
+                                </li>
+                            {% endif %}
+                            {% if list.is_provide_design == True %}
+                                <li class="makingli">
+                                    <span>制</span>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+     </div>
+     </div>
+{% endfor %}
+ </div>
+ </div>
+
+      <div class="paging-boxs">
+      <div class="paging-select">
+<ul>
+    {% if goods.has_previous %}
+        <li class="previous"><a
+                href="{% url 'search' %}?goods_search={{ goods_search }}&page={{ goods.previous_page_number }}" class="turepage_btn">上一页</a>
+        </li>
+    {% else %}
+        <li class="previous disabled"><a href="#" class="turepage_btn">上一页</a></li>
+    {% endif %}
+
+    <li class="num_page_box">
+    {% for page in paginator.page_range %}
+   <a href="{% url 'search' %}?goods_search={{ goods_search }}&page={{ page }}" > {{ page }}</a>
+    {% endfor %}
+    </li>
+        <li class="yc">
+           <a href="javascript:;"> ...</a>
+        </li>
+    {% if goods.has_next %}
+        <li class="next">
+            <a href="{% url 'search' %}?goods_search={{ goods_search }}&page={{ goods.next_page_number }}" class="turepage_btn">
+                下一页
+            </a>
+        </li>
+    {% else %}
+        <li class="next disabled"><a href="#" class="turepage_btn">下一页</a></li>
+    {% endif %}
+</ul>
+      </div>
+       </div>
+
+ {% include 'footer.html' %}
+    <script>
+{#    $(function(){#}
+{#        $(".img-info-box").mouseover(function(){#}
+{#            $(this).css("border","1px solid #ff5250");#}
+{#        });#}
+{#        $(".img-info-box").mouseout(function(){#}
+{#            $(this).css("border","1px solid #ededed");#}
+{#        });#}
+{#    });#}
+
+{#      $("#turn_pag").click(function(){#}
+{#          var pagenum = $("#turn_page").text();#}
+{#          $.ajax({#}
+{##}
+{#              url: "/catalog/search/",#}
+{#              type: "get",#}
+{#              data: {#}
+{#                page: pagenum#}
+{##}
+{#              },#}
+{#              success:function(data) {#}
+{#                alert("成功");#}
+{#              },#}
+{#              error:function(data) {#}
+{#                alert("失败");#}
+{#              }#}
+{#          });#}
+{#          alert(pagenum);#}
+{#      });#}
+{##}
+{#     $("#turn_page2").click(function(){#}
+{#          var pagenum = $("#turn_page2").text();#}
+{#          $.ajax({#}
+{##}
+{#              url: "/catalog/search/",#}
+{#              type: "post",#}
+{#              data: {#}
+{#                page: pagenum,#}
+{#                search_content:$('#search_box').val()#}
+{#              },#}
+{#              success:function(data) {#}
+{#                alert("成功");#}
+{#              },#}
+{#              error:function(data) {#}
+{#                alert("失败");#}
+{#              }#}
+{#          });#}
+{#      });#}
+
+           $(document).ready(function(){
+         var wid = $(".num_page_box").width();
+          if(wid < 142) {
+            $(".yc").css("display","none");
+          }
+          });
+    </script>
+{% endblock %}
